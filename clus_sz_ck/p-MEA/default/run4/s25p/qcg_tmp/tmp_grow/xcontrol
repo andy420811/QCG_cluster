@@ -1,0 +1,8 @@
+$wall
+   potential=polynomial
+   ellipsoid: 18.21987787517926, 11.16793571993585, 10.97344210585965, all
+   ellipsoid: 15.16599373939387, 5.698043498080065, 5.501304734170032, 1-12
+$fix
+   atoms: 1-12
+$gbsa
+  gbsagrid=tight

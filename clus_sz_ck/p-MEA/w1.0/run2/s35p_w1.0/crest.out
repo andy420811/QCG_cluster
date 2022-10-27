@@ -1,0 +1,1490 @@
+ 
+       ==============================================
+       |                                            |
+       |                 C R E S T                  |
+       |                                            |
+       |  Conformer-Rotamer Ensemble Sampling Tool  |
+       |          based on the GFN methods          |
+       |             P.Pracht, S.Grimme             |
+       |          Universitaet Bonn, MCTC           |
+       ==============================================
+       Version 2.12,   Thu 19. Mai 16:32:32 CEST 2022
+  Using the xTB program. Compatible with xTB version 6.4.0
+ 
+   Cite work conducted with this code as
+
+   • P.Pracht, F.Bohle, S.Grimme, PCCP, 2020, 22, 7169-7192.
+   • S.Grimme, JCTC, 2019, 15, 2847-2862.
+
+   and for works involving QCG as
+
+   • S.Spicher, C.Plett, P.Pracht, A.Hansen, S.Grimme,
+     JCTC, 2022, 18 (5), 3174-3189.
+ 
+   with help from:
+   C.Bannwarth, F.Bohle, S.Ehlert, S.Grimme,
+   C.Plett, P.Pracht, S.Spicher
+ 
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+ Command line input:
+ > crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv 35 --T 25 --gsolv --nclus 20 --gbsa water --wscal 1.0
+
+ Solute-file: input.xyz
+ Solvent-file: water.xyz
+  --chrg 1
+  --uhf 0
+  --T 25 (CPUs/Threads selected)
+  --gbsa water : implicit solvation
+ 
+  ========================================
+  |           ----------------           |
+  |                 Q C G                |
+  |           ----------------           |
+  |        Quantum Cluster Growth        |
+  |       University of Bonn, MCTC       |
+  ========================================
+   S. Grimme, S. Spicher, C. Plett.
+ 
+   Cite work conducted with this code as
+
+   S. Spicher, C. Plett, P. Pracht, A. Hansen, S. Grimme, JCTC, 2022, 18, 3174-3189.
+ 
+ 
+  =========================================
+  |   quantum cluster growth: INPUT       |
+  =========================================
+ 
+  QCG: Calculation of delta G_solv
+  Ensemble generated via CREST
+ 
+  input parameters     
+  solute                 : input.xyz
+  charge                 : 1
+  uhf                    : 0
+  solvent                : water.xyz
+  # of solvents to add   : 35
+  # of cluster generated : 20
+  # of CPUs used         : 25
+  Solvation model        : water               
+  xtb opt level          : normal
+  System temperature [K] : 298.1
+  RRHO scaling factor    : 0.75
+ 
+ Solute geometry
+  molecular radius (Bohr**1):    5.72
+  molecular area   (Bohr**2):  476.48
+  molecular volume (Bohr**3):  783.39
+ Solvent geometry
+  molecular radius (Bohr**1):    3.88
+  molecular area   (Bohr**2):  194.99
+  molecular volume (Bohr**3):  244.40
+ 
+  radius of solute    :     9.22
+  radius of solvent   :     6.25
+ 
+  =========================================
+  |            Preoptimization            |
+  =========================================
+ 
+ -------------------------
+ xTB Geometry Optimization
+ -------------------------
+ Geometry successfully optimized.
+ Generating LMOs for solute
+  Total Energy of solute:     -14.8868705 Eh
+ 
+ -------------------------
+ xTB Geometry Optimization
+ -------------------------
+ Geometry successfully optimized.
+ Generating LMOs for solvent
+  Total energy of solvent:     -5.0705444 Eh
+ 
+  ________________________________________________________________________
+ 
+  __________________     Solute Cluster Generation   _____________________
+ 
+  ________________________________________________________________________
+ 
+ 
+  =========================================
+  |   quantum cluster growth: GROW        |
+  =========================================
+ 
+  Constraining solute during Growth 
+ Solute:
+       unit ellipsoid axis a,b,c     :   0.451   0.277   0.272
+ Solvent:
+       unit ellipsoid axis a,b,c     :   0.386   0.322   0.292
+ 
+  solvent anisotropy            :     1.133
+  solute anisotropy             :     1.240
+  roff inner wall               :     0.970
+  solute max dist               :    14.282
+  solvent max dist              :     7.283
+  inner unit axis               :     0.575     0.216     0.209
+  inner ellipsoid/Bohr          :    15.166     5.698     5.501
+  scaling factor outer ellipsoid:     1.000
+  outer ellipsoid/Bohr          :    14.839     9.096     8.937
+ 
+  Size  E /Eh       De/kcal   Detot/kcal  Density   Efix         R   av/act. Surface   Opt
+    1   -19.987195  -18.69     -18.69       0.919     -5.161      0.0   0.0     976.5   normal
+    2   -25.084633  -16.88     -35.56       0.935     -5.913      6.9   8.0    1176.4   normal
+    3   -30.178671  -14.74     -50.31       0.948     -6.586      7.5   6.5    1372.8   normal
+    4   -35.266765  -11.01     -61.32       0.967     -7.199      7.1   6.7    1554.4   normal
+    5   -40.351908   -9.16     -70.48       0.969     -7.766      7.0   8.1    1760.0   normal
+    6   -45.437640   -9.53     -80.01       0.981     -8.296      7.2   7.2    1945.0   normal
+    7   -50.527923  -12.39     -92.40       1.008     -8.796      7.1   6.2    2092.4   normal
+    8   -55.619259  -13.05    -105.44       1.043     -9.270      6.9   6.2    2216.5   normal
+    9   -60.709862  -12.59    -118.03       1.062     -9.721      6.9   6.7    2366.9   normal
+   10   -65.796191   -9.91    -127.93       1.068    -10.153      6.9   7.5    2541.2   normal
+   11   -70.886719  -12.54    -140.47       1.078    -10.567      7.1   9.1    2704.6   normal
+   12   -75.975478  -11.43    -151.90       1.089    -10.966      7.2   9.7    2863.5   normal
+   13   -81.069250  -14.58    -166.48       1.103    -11.352      7.6   7.5    3009.2   normal
+   14   -86.158834  -11.95    -178.43       1.115    -11.725      7.6   7.6    3160.2   normal
+   15   -91.246273  -10.60    -189.03       1.120    -12.086      7.5   9.6    3325.0   normal
+   16   -96.334302  -10.97    -200.00       1.127    -12.437      7.6   7.4    3484.4   normal
+   17  -101.418785   -8.75    -208.75       1.129    -12.778      7.7   7.0    3657.6   normal
+   18  -106.518589  -18.36    -227.11       1.140    -13.112      7.6   6.7    3796.2   normal
+   19  -111.609961  -13.07    -240.18       1.157    -13.436      7.6   8.8    3917.3   normal
+   20  -116.692180   -7.33    -247.50       1.157    -13.752      7.7   6.3    4090.4   normal
+   21  -121.789880  -17.04    -264.54       1.166    -14.063      7.6   7.1    4233.2   normal
+   22  -126.881298  -13.10    -277.64       1.169    -14.366      7.7   9.7    4393.4   normal
+   23  -131.966179   -9.00    -286.64       1.168    -14.663      7.8  12.3    4569.9   normal
+   24  -137.056962  -12.70    -299.34       1.169    -14.954      8.0  10.8    4739.3   normal
+   25  -142.148328  -13.07    -312.40       1.169    -15.240      8.1   7.6    4913.2   normal
+   26  -147.238585  -12.37    -324.77       1.182    -15.520      8.0  12.5    5030.9   normal
+   27  -152.328449  -12.12    -336.90       1.185    -15.796      8.2  13.7    5187.7   normal
+   28  -157.423451  -15.35    -352.24       1.190    -16.067      8.4  10.3    5333.6   normal
+   29  -162.515910  -13.75    -366.00       1.199    -16.333      8.5  12.5    5462.6   normal
+   30  -167.600541   -8.84    -374.83       1.196    -16.595      8.7  11.3    5643.4   normal
+   31  -172.695939  -15.60    -390.43       1.207    -16.853      8.8  11.2    5760.9   normal
+   32  -177.780746   -8.95    -399.38       1.202    -17.107      8.9  13.9    5952.6   normal
+   33  -182.868066  -10.53    -409.91       1.207    -17.357      9.0  11.0    6094.8   normal
+   34  -187.956063  -10.95    -420.86       1.208    -17.604      9.1  14.0    6258.9   normal
+   35  -193.048734  -13.88    -434.74       1.211    -17.847      9.2  11.8    6407.7   normal
+ 
+  Growth finished after 35 solvents added
+  Results can be found in grow directory
+  Energy list in file <qcg_energy.dat>
+  Interaction energy in file <qcg_conv.dat>
+  Growing process in <qcg_grow.xyz>
+  Final geometry after grow in <cluster.coord> and <cluster.xyz>
+  Potentials and geometry written in <cluster_cavity.coord> and <twopot_cavity.coord>
+ 
+  =========================================
+  |   quantum cluster growth: ENSEMBLE    |
+  =========================================
+ 
+   Method for ensemble search:--gff               
+ Starting ensemble cluster generation by CREST routine
+ 
+------------------------------------------------
+Generating MTD length from a flexibility measure
+------------------------------------------------
+ System flexiblity is set to 1.0 for NCI mode
+ flexibility measure :   1.000
+ t(MTD) / ps set by command line  :    10.0
+ t(MTD) / ps    :    10.0
+ Σ(t(MTD)) / ps :   120.0 (12 MTDs)
+ 
+-------------------------------------
+Starting a trial MTD to test settings
+-------------------------------------
+ Estimated runtime for one MTD (10.0 ps) on a single thread: 2 min 23 sec
+ Estimated runtime for a batch of 12 MTDs on 25 threads: 1 min 11 sec
+ 
+ list of Vbias parameters applied:
+$metadyn    0.00125   1.000
+$metadyn    0.00083   1.000
+$metadyn    0.00056   1.000
+$metadyn    0.00125   0.667
+$metadyn    0.00083   0.667
+$metadyn    0.00056   0.667
+$metadyn    0.00125   0.444
+$metadyn    0.00083   0.444
+$metadyn    0.00056   0.444
+$metadyn    0.00125   0.296
+$metadyn    0.00083   0.296
+$metadyn    0.00056   0.296
+ 
+*******************************************************************************************
+**                        N E W    I T E R A T I O N    C Y C L E                        **
+*******************************************************************************************
+ 
+========================================
+            MTD Iteration  1
+========================================
+ 
+     ========================================
+     |         Meta-MD (MTD) Sampling       |
+     ========================================
+ 
+Starting Meta-MD   5 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   2 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   1 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   4 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   7 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   8 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD  10 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.30
+Starting Meta-MD   9 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD  11 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.30
+Starting Meta-MD  12 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.30
+Starting Meta-MD   3 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   6 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.67
+*Meta-MTD 5 finished*
+*Meta-MTD 2 finished*
+*Meta-MTD 8 finished*
+*Meta-MTD 7 finished*
+*Meta-MTD 9 finished*
+*Meta-MTD 4 finished*
+*Meta-MTD 6 finished*
+*Meta-MTD 11 finished*
+*Meta-MTD 3 finished*
+*Meta-MTD 12 finished*
+*Meta-MTD 10 finished*
+*Meta-MTD 1 finished*
+ 
+-----------------------
+Multilevel Optimization
+-----------------------
+ 
+ -------------------------
+ 1. crude pre-optimization
+ -------------------------
+ Optimizing all 600 structures from file "crest_rotamers_0.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 438 439 440 441 442 443 444 445 446 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500 501 502 503 504 505 506 507 508 509 510 511 512 513 514 515 516 517 518 519 520 521 522 523 524 525 526 527 528 529 530 531 532 533 534 535 536 537 538 539 540 541 542 543 544 545 546 547 548 549 550 551 552 553 554 555 556 557 558 559 560 561 562 563 564 565 566 567 568 569 570 571 572 573 574 575 576 577 578 579 580 581 582 583 584 585 586 587 588 589 590 591 592 593 594 595 596 597 598 599 600
+ done.
+ input  file name : crest_rotamers_1.xyz
+ output file name : crest_rotamers_2.xyz
+ reference state Etot :  -12.4163935600000     
+ 600 structures remain within     6.00 kcal/mol window
+ 
+ 
+========================================
+            MTD Iteration  2
+========================================
+ 
+     ========================================
+     |         Meta-MD (MTD) Sampling       |
+     ========================================
+ 
+Starting Meta-MD   1 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   2 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   3 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   4 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   5 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   6 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   8 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD  10 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.30
+Starting Meta-MD   7 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   9 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.44
+*Meta-MTD 1 finished*
+*Meta-MTD 8 finished*
+*Meta-MTD 2 finished*
+*Meta-MTD 9 finished*
+*Meta-MTD 4 finished*
+*Meta-MTD 5 finished*
+*Meta-MTD 3 finished*
+*Meta-MTD 7 finished*
+*Meta-MTD 6 finished*
+*Meta-MTD 10 finished*
+ 
+-----------------------
+Multilevel Optimization
+-----------------------
+ 
+ -------------------------
+ 1. crude pre-optimization
+ -------------------------
+ Optimizing all 500 structures from file "crest_rotamers_0.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 438 439 440 441 442 443 444 445 446 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500
+ done.
+ input  file name : crest_rotamers_1.xyz
+ output file name : crest_rotamers_2.xyz
+ reference state Etot :  -12.4202196500000     
+ 500 structures remain within     6.00 kcal/mol window
+ 
+ ...............................................
+ A new lower conformer was found!
+ Improved by    0.00383 Eh or    2.40091kcal/mol
+ ...............................................
+ 
+========================================
+            MTD Iteration  3
+========================================
+ 
+     ========================================
+     |         Meta-MD (MTD) Sampling       |
+     ========================================
+ 
+Starting Meta-MD   1 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   2 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   3 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   4 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   5 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   6 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   7 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   8 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD  10 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.30
+Starting Meta-MD   9 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.44
+*Meta-MTD 3 finished*
+*Meta-MTD 6 finished*
+*Meta-MTD 4 finished*
+*Meta-MTD 8 finished*
+*Meta-MTD 10 finished*
+*Meta-MTD 5 finished*
+*Meta-MTD 9 finished*
+*Meta-MTD 7 finished*
+*Meta-MTD 1 finished*
+*Meta-MTD 2 finished*
+ 
+-----------------------
+Multilevel Optimization
+-----------------------
+ 
+ -------------------------
+ 1. crude pre-optimization
+ -------------------------
+ Optimizing all 500 structures from file "crest_rotamers_0.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 438 439 440 441 442 443 444 445 446 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500
+ done.
+ input  file name : crest_rotamers_1.xyz
+ output file name : crest_rotamers_2.xyz
+ reference state Etot :  -12.4243051500000     
+ 500 structures remain within     6.00 kcal/mol window
+ 
+ ...............................................
+ A new lower conformer was found!
+ Improved by    0.00409 Eh or    2.56369kcal/mol
+ ...............................................
+ 
+========================================
+            MTD Iteration  4
+========================================
+ 
+     ========================================
+     |         Meta-MD (MTD) Sampling       |
+     ========================================
+ 
+Starting Meta-MD   1 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   2 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   3 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   4 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   5 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   6 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   7 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   8 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD  10 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.30
+Starting Meta-MD   9 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.44
+*Meta-MTD 3 finished*
+*Meta-MTD 1 finished*
+*Meta-MTD 8 finished*
+*Meta-MTD 2 finished*
+*Meta-MTD 4 finished*
+*Meta-MTD 9 finished*
+*Meta-MTD 6 finished*
+*Meta-MTD 10 finished*
+*Meta-MTD 7 finished*
+*Meta-MTD 5 finished*
+ 
+-----------------------
+Multilevel Optimization
+-----------------------
+ 
+ -------------------------
+ 1. crude pre-optimization
+ -------------------------
+ Optimizing all 500 structures from file "crest_rotamers_0.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 438 439 440 441 442 443 444 445 446 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500
+ done.
+ input  file name : crest_rotamers_1.xyz
+ output file name : crest_rotamers_2.xyz
+ reference state Etot :  -12.4281713300000     
+ 500 structures remain within     6.00 kcal/mol window
+ 
+ ...............................................
+ A new lower conformer was found!
+ Improved by    0.00387 Eh or    2.42606kcal/mol
+ ...............................................
+ 
+========================================
+            MTD Iteration  5
+========================================
+ 
+     ========================================
+     |         Meta-MD (MTD) Sampling       |
+     ========================================
+ 
+Starting Meta-MD   1 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   2 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   3 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   4 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   5 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   6 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   7 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   8 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   9 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD  10 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.30
+*Meta-MTD 2 finished*
+*Meta-MTD 7 finished*
+*Meta-MTD 3 finished*
+*Meta-MTD 4 finished*
+*Meta-MTD 8 finished*
+*Meta-MTD 1 finished*
+*Meta-MTD 6 finished*
+*Meta-MTD 5 finished*
+*Meta-MTD 9 finished*
+*Meta-MTD 10 finished*
+ 
+-----------------------
+Multilevel Optimization
+-----------------------
+ 
+ -------------------------
+ 1. crude pre-optimization
+ -------------------------
+ Optimizing all 500 structures from file "crest_rotamers_0.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 438 439 440 441 442 443 444 445 446 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500
+ done.
+ input  file name : crest_rotamers_1.xyz
+ output file name : crest_rotamers_2.xyz
+ reference state Etot :  -12.4241188900000     
+ 500 structures remain within     6.00 kcal/mol window
+ 
+========================================
+            MTD Iterations done         
+========================================
+ Collecting ensmbles.
+ running RMSDs...
+ done.
+ E lowest :   -12.42817
+ 6 structures remain within     3.00 kcal/mol window
+ 
+-----------------------------------------------
+Additional regular MDs on lowest 3 conformer(s)
+-----------------------------------------------
+Starting MD   1 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   400.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   2 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   500.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   3 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   400.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   4 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   500.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   6 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   500.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   5 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   400.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+*MD 5 finished*
+*MD 3 finished*
+*MD 4 finished*
+*MD 6 finished*
+*MD 1 finished*
+*MD 2 finished*
+ Appending file crest_rotamers_1.xyz with new structures
+ 
+ --------------------------------------------
+ Ensemble optimization with normal thresholds
+ --------------------------------------------
+ Optimizing all 156 structures from file "crest_rotamers_1.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156
+ done.
+ input  file name : crest_rotamers_2.xyz
+ output file name : crest_rotamers_3.xyz
+ reference state Etot :  -12.4314184200000     
+ 156 structures remain within     3.00 kcal/mol window
+ 
+ ...............................................
+ A new lower conformer was found!
+ Improved by    0.00325 Eh or    2.03758kcal/mol
+ ...............................................
+ 
+*******************************************************************************************
+**                        N E W    I T E R A T I O N    C Y C L E                        **
+*******************************************************************************************
+ 
+========================================
+            MTD Iteration  1
+========================================
+ 
+     ========================================
+     |         Meta-MD (MTD) Sampling       |
+     ========================================
+ 
+Starting Meta-MD   1 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   2 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD  10 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.30
+Starting Meta-MD   3 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    1.00
+Starting Meta-MD   4 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   5 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   6 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.67
+Starting Meta-MD   7 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.1462
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   8 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0975
+     Vbias exp α /bohr⁻²:    0.44
+Starting Meta-MD   9 with the settings:
+     MD time /ps        :    10.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+     dumpstep(Vbias)/ps :     1.0
+     Vbias factor k /Eh :  0.0650
+     Vbias exp α /bohr⁻²:    0.44
+*Meta-MTD 1 finished*
+*Meta-MTD 5 finished*
+*Meta-MTD 6 finished*
+*Meta-MTD 10 finished*
+*Meta-MTD 2 finished*
+*Meta-MTD 4 finished*
+*Meta-MTD 7 finished*
+*Meta-MTD 9 finished*
+*Meta-MTD 3 finished*
+*Meta-MTD 8 finished*
+ 
+-----------------------
+Multilevel Optimization
+-----------------------
+ 
+ -------------------------
+ 1. crude pre-optimization
+ -------------------------
+ Optimizing all 500 structures from file "crest_rotamers_0.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 438 439 440 441 442 443 444 445 446 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500
+ done.
+ input  file name : crest_rotamers_1.xyz
+ output file name : crest_rotamers_2.xyz
+ reference state Etot :  -12.4222819800000     
+ 500 structures remain within     6.00 kcal/mol window
+ 
+========================================
+            MTD Iterations done         
+========================================
+ Collecting ensmbles.
+ running RMSDs...
+ done.
+ E lowest :   -12.42228
+ 7 structures remain within     3.00 kcal/mol window
+ 
+-----------------------------------------------
+Additional regular MDs on lowest 3 conformer(s)
+-----------------------------------------------
+Starting MD   6 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   500.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   1 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   400.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   2 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   500.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   3 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   400.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   4 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   500.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+Starting MD   5 with the settings:
+     MD time /ps        :     5.0
+     MD Temperature /K  :   400.0
+     dt /fs             :     1.5
+     dumpstep(trj) /fs  :     200
+*MD 4 finished*
+*MD 5 finished*
+*MD 3 finished*
+*MD 1 finished*
+*MD 6 finished*
+*MD 2 finished*
+ Appending file crest_rotamers_1.xyz with new structures
+ 
+ --------------------------------------------
+ Ensemble optimization with normal thresholds
+ --------------------------------------------
+ Optimizing all 157 structures from file "crest_rotamers_1.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157
+ done.
+ input  file name : crest_rotamers_2.xyz
+ output file name : crest_rotamers_3.xyz
+ reference state Etot :  -12.4307773400000     
+ 157 structures remain within     3.00 kcal/mol window
+ 
+ 
+ 
+   ================================================
+   |           Final Geometry Optimization        |
+   ================================================
+ --------------------------------------------
+ Ensemble optimization with normal thresholds
+ --------------------------------------------
+ Optimizing all 157 structures from file "crest_rotamers_3.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157
+ done.
+ input  file name : crest_rotamers_4.xyz
+ output file name : crest_rotamers_5.xyz
+ reference state Etot :  -12.4307775100000     
+ 157 structures remain within     3.00 kcal/mol window
+ 
+  GFN2-xTB optimization
+ --------------------------------------------
+ Ensemble optimization with normal thresholds
+ --------------------------------------------
+ Optimizing all 157 structures from file "crest_rotamers_5.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157
+ done.
+ 
+ -------------------------------------------
+ Ensemble optimization with tight thresholds
+ -------------------------------------------
+ Optimizing all 157 structures from file "crest_rotamers_6.xyz" ...
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157
+ done.
+ 
+ 
+  Single point computation with GBSA model
+  157 jobs to do.
+ 
+  done.
+ 
+  Cluster   E /Eh        Density  Efix       R   av/act. Surface   Opt
+    1      -193.211713   1.215    0.000     8.9  11.6     2541.1   tight
+    2      -193.212010   1.210    0.000     8.8   7.1     2579.1   tight
+    3      -193.209685   1.228    0.000     8.8  13.2     2429.1   tight
+    4      -193.223027   1.195    0.000     9.0   7.7     2800.7   tight
+    5      -193.206119   1.213    0.000     8.8   6.7     2557.0   tight
+    6      -193.217511   1.217    0.000     8.9  12.9     2524.9   tight
+    7      -193.201234   1.192    0.000     9.3   7.6     2784.5   tight
+    8      -193.209032   1.202    0.000     8.7  10.1     2673.3   tight
+    9      -193.204573   1.208    0.000     9.1  11.6     2559.6   tight
+   10      -193.218317   1.227    0.000     8.7   9.2     2479.2   tight
+   11      -193.217110   1.221    0.000     8.8  12.2     2488.8   tight
+   12      -193.230497   1.202    0.000     8.9  13.2     2710.6   tight
+   13      -193.211385   1.200    0.000     9.0  12.5     2681.1   tight
+   14      -193.215033   1.221    0.000     8.7  10.8     2565.7   tight
+   15      -193.210848   1.219    0.000     8.9  13.7     2521.2   tight
+   16      -193.212404   1.203    0.000     8.9   9.7     2699.3   tight
+   17      -193.215503   1.210    0.000     9.1  13.3     2646.1   tight
+   18      -193.205463   1.216    0.000     8.7   8.6     2564.2   tight
+   19      -193.200935   1.216    0.000     8.8  12.8     2507.5   tight
+   20      -193.214208   1.204    0.000     8.9  12.1     2631.6   tight
+   21      -193.204025   1.200    0.000     9.3   6.2     2653.7   tight
+   22      -193.204017   1.209    0.000     8.8  11.0     2656.6   tight
+   23      -193.211201   1.212    0.000     9.2  12.7     2591.3   tight
+   24      -193.211644   1.196    0.000     9.1  10.0     2750.6   tight
+   25      -193.208000   1.199    0.000     9.6  14.9     2654.8   tight
+   26      -193.206271   1.214    0.000    10.4   7.3     2577.2   tight
+   27      -193.208440   1.188    0.000     9.1  12.9     2823.1   tight
+   28      -193.213395   1.215    0.000     8.9   9.2     2555.6   tight
+   29      -193.211657   1.203    0.000     9.0  11.7     2680.2   tight
+   30      -193.202303   1.209    0.000     8.8   7.8     2630.7   tight
+   31      -193.215866   1.218    0.000     8.8   8.3     2573.2   tight
+   32      -193.204673   1.213    0.000     9.1  13.2     2564.9   tight
+   33      -193.210441   1.206    0.000     8.6   9.6     2590.6   tight
+   34      -193.214826   1.203    0.000     9.5   6.3     2692.7   tight
+   35      -193.211611   1.214    0.000     8.9   7.9     2619.2   tight
+   36      -193.213419   1.213    0.000     9.1   7.0     2591.9   tight
+   37      -193.209175   1.206    0.000     8.9  10.4     2647.8   tight
+   38      -193.203063   1.211    0.000     9.1   9.0     2597.9   tight
+   39      -193.208867   1.198    0.000     9.0   9.9     2662.9   tight
+   40      -193.211306   1.194    0.000     9.3  13.1     2775.7   tight
+   41      -193.206113   1.197    0.000     8.9   8.2     2711.3   tight
+   42      -193.206984   1.212    0.000     9.1   7.6     2631.3   tight
+   43      -193.210427   1.190    0.000     9.2   8.0     2839.8   tight
+   44      -193.202915   1.203    0.000     9.7   5.9     2664.4   tight
+   45      -193.220627   1.201    0.000     9.0   6.4     2697.3   tight
+   46      -193.203988   1.202    0.000     9.9   7.5     2665.7   tight
+   47      -193.216208   1.206    0.000     9.0  13.1     2626.9   tight
+   48      -193.214735   1.214    0.000     9.0  13.7     2559.1   tight
+   49      -193.208604   1.204    0.000     8.9  12.0     2641.6   tight
+   50      -193.212388   1.206    0.000     9.2  10.0     2635.0   tight
+   51      -193.211467   1.202    0.000     8.9   9.7     2668.6   tight
+   52      -193.223638   1.194    0.000     9.0   8.2     2805.6   tight
+   53      -193.203410   1.208    0.000     8.8  10.4     2607.7   tight
+   54      -193.220899   1.226    0.000    11.8   9.5     2532.8   tight
+   55      -193.218597   1.220    0.000     9.1  12.8     2506.1   tight
+   56      -193.198743   1.214    0.000     8.8  12.0     2556.8   tight
+   57      -193.221748   1.214    0.000     8.9  12.8     2599.9   tight
+   58      -193.211448   1.210    0.000     8.8   7.7     2506.2   tight
+   59      -193.209626   1.202    0.000     9.3  12.5     2685.6   tight
+   60      -193.202420   1.195    0.000     9.2   9.5     2743.7   tight
+   61      -193.213614   1.206    0.000     9.5  12.5     2629.6   tight
+   62      -193.213837   1.206    0.000     9.2  11.4     2639.6   tight
+   63      -193.201458   1.205    0.000     9.2   8.3     2625.6   tight
+   64      -193.199750   1.211    0.000     8.9  13.6     2611.5   tight
+   65      -193.208740   1.207    0.000     9.2   5.8     2626.4   tight
+   66      -193.209058   1.200    0.000     8.9   6.0     2693.0   tight
+   67      -193.208139   1.218    0.000     8.9   8.0     2510.1   tight
+   68      -193.210573   1.202    0.000     9.3   7.6     2684.1   tight
+   69      -193.222891   1.204    0.000     9.2  12.0     2751.3   tight
+   70      -193.208491   1.221    0.000     8.8   8.4     2490.1   tight
+   71      -193.201605   1.192    0.000     9.0   7.5     2713.6   tight
+   72      -193.210266   1.198    0.000     9.3   8.4     2727.5   tight
+   73      -193.212797   1.211    0.000     8.7  11.6     2569.1   tight
+   74      -193.215154   1.213    0.000     9.3   6.8     2616.6   tight
+   75      -193.216281   1.213    0.000     9.4   5.9     2593.9   tight
+   76      -193.209712   1.194    0.000     9.2   8.5     2753.4   tight
+   77      -193.205164   1.207    0.000     9.1   7.5     2666.3   tight
+   78      -193.218013   1.198    0.000     8.9  12.6     2752.3   tight
+   79      -193.212467   1.204    0.000     9.1   7.7     2672.4   tight
+   80      -193.206593   1.211    0.000     8.9  10.7     2599.5   tight
+   81      -193.205631   1.218    0.000     8.8   7.8     2490.9   tight
+   82      -193.202830   1.204    0.000     9.1   7.6     2624.6   tight
+   83      -193.210881   1.208    0.000     8.8  10.8     2632.8   tight
+   84      -193.213835   1.187    0.000     9.1   5.3     2849.3   tight
+   85      -193.222217   1.196    0.000     9.9   8.9     2801.0   tight
+   86      -193.209951   1.203    0.000     9.1  11.3     2690.7   tight
+   87      -193.211361   1.193    0.000     9.3   8.2     2804.3   tight
+   88      -193.207097   1.203    0.000     8.9   7.5     2696.1   tight
+   89      -193.203949   1.217    0.000     9.1   6.2     2523.1   tight
+   90      -193.212265   1.210    0.000     8.8  12.7     2598.9   tight
+   91      -193.204940   1.224    0.000     8.9   5.8     2470.1   tight
+   92      -193.198832   1.221    0.000     8.6   9.4     2503.3   tight
+   93      -193.209310   1.212    0.000     9.0   8.4     2591.5   tight
+   94      -193.204065   1.207    0.000     9.0   7.7     2585.5   tight
+   95      -193.210503   1.207    0.000    10.6   6.3     2668.5   tight
+   96      -193.216181   1.222    0.000     8.6   8.7     2510.6   tight
+   97      -193.212817   1.205    0.000     9.1   7.3     2651.4   tight
+   98      -193.194088   1.189    0.000     9.2  12.0     2757.3   tight
+   99      -193.221881   1.179    0.000     9.0  13.0     2918.9   tight
+  100      -193.210911   1.214    0.000     9.5   7.2     2623.7   tight
+  101      -193.202530   1.189    0.000     9.6  11.7     2805.3   tight
+  102      -193.214175   1.203    0.000     8.9  11.0     2727.3   tight
+  103      -193.196787   1.182    0.000     9.3   8.9     2867.8   tight
+  104      -193.213542   1.210    0.000     8.8  10.8     2558.2   tight
+  105      -193.206718   1.208    0.000     9.2   6.0     2576.6   tight
+  106      -193.221206   1.201    0.000     9.1   9.2     2698.6   tight
+  107      -193.203505   1.197    0.000     9.1   7.8     2718.1   tight
+  108      -193.196307   1.197    0.000     9.3   8.0     2773.1   tight
+  109      -193.202516   1.192    0.000     9.5   8.8     2769.7   tight
+  110      -193.211605   1.211    0.000     8.9   5.8     2580.8   tight
+  111      -193.216745   1.198    0.000     9.2   8.9     2727.1   tight
+  112      -193.208014   1.201    0.000     9.0   7.8     2674.7   tight
+  113      -193.217246   1.210    0.000     9.3   6.1     2629.2   tight
+  114      -193.211056   1.212    0.000     8.8   9.8     2583.0   tight
+  115      -193.212788   1.209    0.000     9.2   6.2     2649.4   tight
+  116      -193.206897   1.197    0.000     9.1   5.2     2690.0   tight
+  117      -193.207541   1.197    0.000     9.3   7.3     2731.6   tight
+  118      -193.200626   1.200    0.000     9.1   7.2     2662.9   tight
+  119      -193.213588   1.207    0.000     9.2   6.0     2631.9   tight
+  120      -193.209832   1.216    0.000     9.0   8.6     2508.9   tight
+  121      -193.205716   1.194    0.000     9.0   5.8     2763.1   tight
+  122      -193.209649   1.194    0.000     9.4   6.1     2808.5   tight
+  123      -193.211901   1.215    0.000     9.0   8.1     2590.2   tight
+  124      -193.203529   1.205    0.000     9.3   6.7     2663.9   tight
+  125      -193.212488   1.207    0.000     9.1   8.4     2604.7   tight
+  126      -193.213251   1.205    0.000     9.2   9.9     2647.7   tight
+  127      -193.205779   1.205    0.000     9.0   5.9     2649.4   tight
+  128      -193.206733   1.201    0.000     9.3  11.1     2659.4   tight
+  129      -193.216456   1.207    0.000     9.7  14.5     2685.3   tight
+  130      -193.209306   1.193    0.000     9.6   8.0     2801.3   tight
+  131      -193.208957   1.207    0.000     9.0   7.7     2605.3   tight
+  132      -193.199557   1.197    0.000    10.5   8.2     2696.1   tight
+  133      -193.201931   1.209    0.000     8.9   9.7     2625.7   tight
+  134      -193.209457   1.213    0.000     9.2   5.5     2602.3   tight
+  135      -193.210124   1.199    0.000     9.2   8.0     2717.5   tight
+  136      -193.205068   1.198    0.000     9.1   9.1     2670.8   tight
+  137      -193.206804   1.198    0.000     9.0   7.7     2732.3   tight
+  138      -193.215012   1.211    0.000     9.3   5.8     2632.5   tight
+  139      -193.206178   1.205    0.000     9.2   6.6     2633.2   tight
+  140      -193.208339   1.207    0.000     9.0   8.1     2610.5   tight
+  141      -193.212015   1.220    0.000    10.0   7.9     2503.1   tight
+  142      -193.227100   1.222    0.000     8.9   7.6     2515.4   tight
+  143      -193.216592   1.198    0.000     9.1   9.8     2741.8   tight
+  144      -193.207759   1.208    0.000     8.9  13.4     2649.3   tight
+  145      -193.210041   1.220    0.000     8.8   7.3     2539.4   tight
+  146      -193.205656   1.189    0.000     9.0  10.2     2794.0   tight
+  147      -193.210838   1.194    0.000     9.7   6.2     2752.2   tight
+  148      -193.213890   1.201    0.000    11.0   5.9     2747.6   tight
+  149      -193.205161   1.198    0.000     9.6   6.3     2746.2   tight
+  150      -193.211203   1.201    0.000     8.8  11.3     2734.4   tight
+  151      -193.204855   1.210    0.000     9.1   7.7     2602.0   tight
+  152      -193.215295   1.206    0.000     9.0   7.9     2651.2   tight
+  153      -193.205003   1.209    0.000     9.2   7.3     2625.3   tight
+  154      -193.208650   1.206    0.000     8.8   8.1     2611.9   tight
+  155      -193.212499   1.207    0.000     8.9  11.4     2632.6   tight
+  156      -193.206544   1.213    0.000     8.8  11.9     2585.2   tight
+  157      -193.204985   1.203    0.000     9.1  10.8     2682.2   tight
+ 
+Taking  20 structures
+ 
+  ------------------------------------------------------------------------
+  ------------------------------------------------------------------------
+  Boltz. averaged energy of final cluster:
+       G /Eh     : -193.23052445
+       T*S /kcal :  -0.082
+ 
+  Ensemble generation finished.
+  Results can be found in ensemble directory
+  Lowest energy conformer in file <crest_best.xyz>
+  List of full ensemble in file <full_ensemble.xyz>
+  List of used ensemble in file <final_ensemble.xyz>
+  Thermodynamical data in file <thermo_data>
+  Population of full ensemble in file <full_population.dat>
+  Population in file <population.dat>
+ 
+ 
+  ________________________________________________________________________
+ 
+  _________________     Solvent Cluster Generation   _____________________
+ 
+  ________________________________________________________________________
+ 
+ Method for CFF: GFN2-xTB
+ 
+  =========================================
+  |   quantum cluster growth: CFF         |
+  =========================================
+ 
+  CUT-FREEZE-FILL Algorithm to generate reference solvent cluster
+  now adding solvents to fill cluster...
+  Size  Cluster   E /Eh        De/kcal   Detot/kcal  Opt
+  ------------------------------------------------------------------------
+  36       1   -183.210323    -16.81      -16.81    tight
+  36       2   -183.209016    -21.63      -21.63    tight
+  36       3   -183.205691    -15.11      -15.11    tight
+  36       4   -183.206015    -14.13      -14.13    tight
+  36       5   -183.206664    -16.44      -16.44    tight
+  36       6   -183.212128    -15.85      -15.85    tight
+  36       7   -183.204724    -18.59      -18.59    tight
+  36       8   -183.204424    -12.24      -12.24    tight
+  36       9   -183.194062    -13.65      -13.65    tight
+  36      10   -183.236081    -21.17      -21.17    tight
+  36      11   -183.196916    -10.52      -10.52    tight
+  36      12   -183.202941    -21.01      -21.01    tight
+  36      13   -183.198426    -14.29      -14.29    tight
+  36      14   -183.187344    -17.78      -17.78    tight
+  36      15   -183.195451    -17.66      -17.66    tight
+  36      16   -183.209593    -14.65      -14.65    tight
+  36      17   -183.195401    -14.35      -14.35    tight
+  36      18   -183.206733    -16.94      -16.94    tight
+  36      19   -183.192925    -17.88      -17.88    tight
+  36      20   -183.197953    -11.45      -11.45    tight
+  ------------------------------------------------------------------------
+  no more solvents can be placed inside cavity of cluster: 20
+  previous cluster taken...
+  37       1   -188.306159    -15.87      -32.68    tight
+  37       2   -188.310543    -19.44      -41.07    tight
+  37       3   -188.294570    -11.50      -26.61    tight
+  37       4   -188.302205    -16.09      -30.22    tight
+  37       5   -188.302673    -15.98      -32.42    tight
+  37       6   -188.298837    -10.14      -26.00    tight
+  37       7   -188.298357    -14.49      -33.08    tight
+  37       8   -188.296888    -13.75      -26.00    tight
+  37       9   -188.288840    -15.21      -28.86    tight
+  37      10   -188.322705    -10.09      -31.26    tight
+  37      11   -188.301218    -21.18      -31.70    tight
+  37      12   -188.299140    -16.10      -37.11    tight
+  37      13   -188.295892    -16.89      -31.18    tight
+  37      14   -188.282597    -15.50      -33.29    tight
+  37      15   -188.289201    -14.56      -32.22    tight
+  37      16   -188.310309    -18.93      -33.58    tight
+  37      17   -188.293941    -17.57      -31.92    tight
+  37      18   -188.304285    -16.95      -33.89    tight
+  37      19   -188.293848    -19.06      -36.94    tight
+  ------------------------------------------------------------------------
+  no more solvents can be placed inside cavity of cluster: 2
+  previous cluster taken...
+  no more solvents can be placed inside cavity of cluster: 16
+  previous cluster taken...
+  no more solvents can be placed inside cavity of cluster: 18
+  previous cluster taken...
+  38       1   -193.393803    -10.73      -43.41    tight
+  38       3   -193.386934    -13.69      -40.30    tight
+  38       4   -193.396426    -14.86      -45.08    tight
+  38       5   -193.392590    -12.16      -44.58    tight
+  38       6   -193.394957    -16.05      -42.04    tight
+  38       7   -193.387758    -11.83      -44.91    tight
+  38       8   -193.389600    -13.91      -39.91    tight
+  38       9   -193.383921    -15.40      -44.26    tight
+  38      10   -193.414176    -13.13      -44.39    tight
+  38      11   -193.390396    -11.69      -43.39    tight
+  38      12   -193.394105    -15.32      -52.44    tight
+  38      13   -193.390177    -14.90      -46.08    tight
+  38      14   -193.367993     -9.32      -42.61    tight
+  38      15   -193.391128    -19.69      -51.92    tight
+  38      17   -193.387711    -14.57      -46.49    tight
+  38      19   -193.386175    -13.67      -50.61    tight
+  ------------------------------------------------------------------------
+  volume filled
+  Starting optimizations + SP  of structures
+  16 jobs to do.
+ 
+  done.
+ 
+  Cluster   E /Eh        Density  Efix       R   av/act. Surface   Opt
+    1      -178.125871   1.180    0.000     3.2   8.6     2682.2   tight
+    2      -178.131556   1.192    0.000     3.2   3.5     2574.2   tight
+    3      -178.119544   1.171    0.000     5.3   4.2     2784.5   tight
+    4      -178.128287   1.177    0.000     3.2   8.1     2715.0   tight
+    5      -178.124754   1.181    0.000     3.2   8.8     2717.3   tight
+    6      -178.126934   1.174    0.000     8.2   2.0     2777.4   tight
+    7      -178.120303   1.160    0.000     2.7  10.0     2923.0   tight
+    8      -178.122000   1.178    0.000     7.7  10.6     2688.1   tight
+    9      -178.116769   1.172    0.000     8.3   2.0     2729.3   tight
+   10      -178.144636   1.218    0.000    10.0   9.4     2394.8   tight
+   11      -178.122733   1.177    0.000     3.5  11.1     2673.0   tight
+   12      -178.126149   1.195    0.000     3.9   9.6     2506.3   tight
+   13      -178.122531   1.192    0.000     5.9   2.8     2495.5   tight
+   14      -178.102099   1.169    0.000     3.0  14.7     2782.6   tight
+   15      -178.123407   1.188    0.000     7.3   1.6     2566.8   tight
+   16      -178.131373   1.183    0.000     1.5   5.3     2657.5   tight
+   17      -178.120260   1.185    0.000     3.1   9.6     2582.9   tight
+   18      -178.125675   1.176    0.000     5.2   1.4     2749.9   tight
+   19      -178.118846   1.180    0.000     3.3   9.4     2685.9   tight
+   20      -178.109121   1.160    0.000     3.3   9.4     2852.2   tight
+ 
+  ------------------------------------------------------------------------
+  ------------------------------------------------------------------------
+  Boltz. averaged energy of final cluster:
+       G /Eh     : -178.14463570
+       T*S /kcal :  -0.000
+ 
+  Solvent cluster generation finished.
+  Results can be found in solvent_cluster directory
+  Structures in file <crest_ensemble.xyz>
+  Energies in file <cluster_energy.dat>
+  Population in file <population.dat>
+ 
+  =========================================
+  |   quantum cluster growth: ESOLV       |
+  |                                       |
+  |          -124.89 kcal/mol             |
+  =========================================
+ 
+  =========================================
+  |          Frequency evaluation         |
+  =========================================
+ 
+   SOLUTE MOLECULE
+  Starting reoptimizations + Frequency computation of ensemble
+  1 jobs to do.
+ 
+  done.
+   SOLUTE CLUSTER
+  Starting reoptimizations + Frequency computation of ensemble
+  20 jobs to do.
+ 
+  done.
+   SOLVENT CLUSTER
+  Starting reoptimizations + Frequency computation of ensemble
+  20 jobs to do.
+ 
+  done.
+ 
+   Solute Gas properties
+  #       H(T)       SVIB      SROT       STRA      G(T)
+       [kcal/mol]    [      cal/mol/K        ]    [kcal/mol]
+  --------------------------------------------------------
+       71.00     11.05     24.33     38.28     49.04
+ 
+   Solute cluster properties
+  #       H(T)       SVIB      SROT       STRA      G(T)
+       [kcal/mol]    [      cal/mol/K        ]    [kcal/mol]
+  --------------------------------------------------------
+  1      653.71    359.15     38.90     45.47    521.47
+  2      653.57    357.45     38.78     45.47    521.88
+  3      653.24    361.42     38.95     45.47    520.32
+  4      653.17    355.23     38.93     45.47    522.09
+  5      652.98    361.08     38.98     45.47    520.15
+  6      653.31    361.10     39.08     45.47    520.44
+  7      653.00    367.30     39.04     45.47    518.29
+  8      653.82    361.57     38.77     45.47    520.91
+  9      653.75    365.61     38.97     45.47    519.57
+  10      653.17    351.95     38.85     45.47    523.10
+  11      653.21    361.36     38.88     45.47    520.32
+  12      653.95    364.83     38.87     45.47    520.03
+  13      653.39    367.03     38.77     45.47    518.85
+  14      653.19    369.90     38.89     45.47    517.76
+  15      653.37    367.98     38.80     45.47    518.53
+  16      653.37    361.76     38.88     45.47    520.36
+  17      653.47    365.99     38.81     45.47    519.22
+  18      653.01    366.74     38.98     45.47    518.50
+  19      652.80    362.70     39.02     45.47    519.47
+  20      653.47    362.01     39.03     45.47    520.35
+ 
+   Solvent cluster properties
+  #       H(T)       SVIB      SROT       STRA      G(T)
+       [kcal/mol]    [      cal/mol/K        ]    [kcal/mol]
+  --------------------------------------------------------
+  1      580.86    328.34     38.46     45.19    458.02
+  2      581.46    326.71     38.31     45.19    459.16
+  3      581.02    326.35     38.51     45.19    458.76
+  4      580.85    323.35     38.42     45.19    459.52
+  5      580.85    329.19     38.43     45.19    457.77
+  6      580.75    326.23     38.72     45.19    458.47
+  7      580.98    325.48     38.44     45.19    459.01
+  8      581.25    324.25     38.50     45.19    459.63
+  9      581.36    332.22     38.58     45.19    457.33
+  10      581.34    330.61     38.44     45.19    457.83
+  11      581.56    320.68     38.57     45.19    460.98
+  12      581.61    341.68     38.47     45.19    454.80
+  13      581.27    323.81     38.35     45.19    459.82
+  14      580.98    335.15     38.41     45.19    456.13
+  15      580.91    334.81     38.51     45.19    456.14
+  16      581.29    336.57     38.64     45.19    455.95
+  17      581.09    333.69     38.48     45.19    456.66
+  18      581.01    324.57     38.51     45.19    459.28
+  19      581.11    333.35     38.66     45.19    456.72
+  20      581.23    323.22     38.50     45.19    459.91
+ 
+ 
+  ________________________________________________________________________
+ 
+  _________________________     Evaluation    ____________________________
+ 
+  ________________________________________________________________________
+ 
+ 
+  -----------------------------------------------------
+  Gsolv and Hsolv ref. state: [1 M gas/solution] 
+  G_solv (incl.RRHO)      = -110.49 kcal/mol
+  H_solv (incl.RRHO)      = -122.93 kcal/mol
+  -----------------------------------------------------
+ 
+  -----------------------------------------------------
+  Gsolv and Hsolv ref. state: [1 M gas/solution] 
+  G_solv (incl.RRHO)      = -112.38 kcal/mol
+  H_solv (incl.RRHO)      = -124.83 kcal/mol
+  -----------------------------------------------------
+ 
+  -----------------------------------------------------
+  Solvation free energies with scaled translational
+  and rotational degrees of freedom: Gsolv (scaling)
+          >>   -129.91 (0.05)    <<
+          >>   -128.99 (0.10)    <<
+          >>   -128.07 (0.15)    <<
+          >>   -127.14 (0.20)    <<
+          >>   -126.22 (0.25)    <<
+          >>   -125.30 (0.30)    <<
+          >>   -124.38 (0.35)    <<
+          >>   -123.45 (0.40)    <<
+          >>   -122.53 (0.45)    <<
+          >>   -121.61 (0.50)    <<
+          >>   -120.69 (0.55)    <<
+          >>   -119.76 (0.60)    <<
+          >>   -118.84 (0.65)    <<
+          >>   -117.92 (0.70)    <<
+          >>   -117.00 (0.75)    <<
+          >>   -116.07 (0.80)    <<
+          >>   -115.15 (0.85)    <<
+          >>   -114.23 (0.90)    <<
+          >>   -113.31 (0.95)    <<
+          >>   -112.38 (1.00)    <<
+  -----------------------------------------------------
+ 
+  ==================================================
+  |  Gsolv with SCALED RRHO contributions: 0.75    |
+  |  [1 bar gas/ 1 M solution]                     |
+  |                                                |
+  |  G_solv (incl.RRHO)+dV(T)= -117.00 kcal/mol    |
+  ==================================================
+ 
+ 
+ -----------------
+ Wall Time Summary
+ -----------------
+             test MD wall time :         0h : 0m : 1s
+                 MTD wall time :         0h : 2m :54s
+      multilevel OPT wall time :         0h : 2m :38s
+                  MD wall time :         0h : 1m : 3s
+                Grow wall time :         0h : 6m :30s
+     Solute-Ensemble wall time :         0h :16m :47s
+                 CFF wall time :         0h : 3m :52s
+         Frequencies wall time :         0h : 6m :21s
+--------------------
+Overall wall time  : 0h :40m :29s
+ 
+ CREST terminated normally.

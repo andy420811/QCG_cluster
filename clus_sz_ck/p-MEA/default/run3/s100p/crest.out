@@ -1,0 +1,205 @@
+ 
+       ==============================================
+       |                                            |
+       |                 C R E S T                  |
+       |                                            |
+       |  Conformer-Rotamer Ensemble Sampling Tool  |
+       |          based on the GFN methods          |
+       |             P.Pracht, S.Grimme             |
+       |          Universitaet Bonn, MCTC           |
+       ==============================================
+       Version 2.12,   Thu 19. Mai 16:32:32 CEST 2022
+  Using the xTB program. Compatible with xTB version 6.4.0
+ 
+   Cite work conducted with this code as
+
+   • P.Pracht, F.Bohle, S.Grimme, PCCP, 2020, 22, 7169-7192.
+   • S.Grimme, JCTC, 2019, 15, 2847-2862.
+
+   and for works involving QCG as
+
+   • S.Spicher, C.Plett, P.Pracht, A.Hansen, S.Grimme,
+     JCTC, 2022, 18 (5), 3174-3189.
+ 
+   with help from:
+   C.Bannwarth, F.Bohle, S.Ehlert, S.Grimme,
+   C.Plett, P.Pracht, S.Spicher
+ 
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+ Command line input:
+ > crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv 100 --T 25 --gsolv --nclus 20 --gbsa water
+
+ Solute-file: input.xyz
+ Solvent-file: water.xyz
+  --chrg 1
+  --uhf 0
+  --T 25 (CPUs/Threads selected)
+  --gbsa water : implicit solvation
+ 
+  ========================================
+  |           ----------------           |
+  |                 Q C G                |
+  |           ----------------           |
+  |        Quantum Cluster Growth        |
+  |       University of Bonn, MCTC       |
+  ========================================
+   S. Grimme, S. Spicher, C. Plett.
+ 
+   Cite work conducted with this code as
+
+   S. Spicher, C. Plett, P. Pracht, A. Hansen, S. Grimme, JCTC, 2022, 18, 3174-3189.
+ 
+ 
+  =========================================
+  |   quantum cluster growth: INPUT       |
+  =========================================
+ 
+  QCG: Calculation of delta G_solv
+  Ensemble generated via CREST
+ 
+  input parameters     
+  solute                 : input.xyz
+  charge                 : 1
+  uhf                    : 0
+  solvent                : water.xyz
+  # of solvents to add   : 100
+  # of cluster generated : 20
+  # of CPUs used         : 25
+  Solvation model        : water               
+  xtb opt level          : normal
+  System temperature [K] : 298.1
+  RRHO scaling factor    : 0.75
+ 
+ Solute geometry
+  molecular radius (Bohr**1):    5.72
+  molecular area   (Bohr**2):  476.48
+  molecular volume (Bohr**3):  783.39
+ Solvent geometry
+  molecular radius (Bohr**1):    3.88
+  molecular area   (Bohr**2):  194.99
+  molecular volume (Bohr**3):  244.40
+ 
+  radius of solute    :     9.22
+  radius of solvent   :     6.25
+ 
+  =========================================
+  |            Preoptimization            |
+  =========================================
+ 
+ -------------------------
+ xTB Geometry Optimization
+ -------------------------
+ Geometry successfully optimized.
+ Generating LMOs for solute
+  Total Energy of solute:     -14.8868705 Eh
+ 
+ -------------------------
+ xTB Geometry Optimization
+ -------------------------
+ Geometry successfully optimized.
+ Generating LMOs for solvent
+  Total energy of solvent:     -5.0705444 Eh
+ 
+  ________________________________________________________________________
+ 
+  __________________     Solute Cluster Generation   _____________________
+ 
+  ________________________________________________________________________
+ 
+ 
+  =========================================
+  |   quantum cluster growth: GROW        |
+  =========================================
+ 
+ 
+  Water as solvent recognized, adjusting scaling factor for outer wall pot to 0.70
+ 
+  Constraining solute during Growth 
+ Solute:
+       unit ellipsoid axis a,b,c     :   0.451   0.277   0.272
+ Solvent:
+       unit ellipsoid axis a,b,c     :   0.386   0.322   0.292
+ 
+  solvent anisotropy            :     1.133
+  solute anisotropy             :     1.240
+  roff inner wall               :     0.970
+  solute max dist               :    14.282
+  solvent max dist              :     7.283
+  inner unit axis               :     0.575     0.216     0.209
+  inner ellipsoid/Bohr          :    15.166     5.698     5.501
+  scaling factor outer ellipsoid:     0.700
+  outer ellipsoid/Bohr          :    10.387     6.367     6.256
+ 
+  Size  E /Eh       De/kcal   Detot/kcal  Density   Efix         R   av/act. Surface   Opt
+    1   -19.962634   -3.28      -3.28       0.931     -5.154      0.0   0.0     964.2   normal
+    2   -25.052349  -12.03     -15.30       0.977     -5.905      7.8   5.6    1125.7   normal
+    3   -30.142439  -12.26     -27.57       1.012     -6.578      6.8   5.2    1285.5   normal
+    4   -35.232952  -12.53     -40.10       1.007     -7.192      6.4   8.0    1492.3   normal
+    5   -40.320735  -10.82     -50.92       1.020     -7.760      6.8   5.6    1671.7   normal
+    6   -45.407068   -9.91     -60.82       1.031     -8.290      6.6   5.5    1849.9   normal
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 0.73
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 0.77
+    7   -50.507007  -18.45     -79.27       1.038     -8.792      6.7   5.9    2031.5   normal
+    8   -55.599742  -13.93     -93.20       1.049     -9.267      6.6   7.6    2202.3   normal
+    9   -60.689449  -12.02    -105.22       1.072     -9.718      6.8   6.6    2342.9   normal
+   10   -65.777362  -10.90    -116.12       1.082    -10.150      6.8   6.0    2509.1   normal
+   11   -70.864630  -10.49    -126.61       1.098    -10.564      6.7   6.9    2656.3   normal
+   12   -75.950630   -9.70    -136.31       1.094    -10.963      6.7   9.3    2851.3   normal
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 0.81
+   13   -81.044244  -14.48    -150.79       1.093    -11.348      7.1   8.0    3039.0   normal
+   14   -86.140986  -16.44    -167.23       1.127    -11.722      7.1   6.9    3125.8   normal
+   15   -91.226840   -9.61    -176.83       1.133    -12.083      7.2   8.7    3286.5   normal
+   16   -96.316886  -12.24    -189.07       1.137    -12.434      7.4   8.4    3454.0   normal
+   17  -101.408983  -13.52    -202.60       1.144    -12.776      7.5   7.7    3606.6   normal
+   18  -106.499164  -12.32    -214.92       1.151    -13.109      7.4   6.9    3760.6   normal
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 0.85
+   19  -111.596509  -16.82    -231.74       1.153    -13.435      7.5   6.9    3931.7   normal
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 0.89
+   20  -116.682048   -9.41    -241.14       1.147    -13.751      7.5  12.0    4125.4   normal
+   21  -121.773346  -13.02    -254.17       1.155    -14.061      7.7   9.2    4273.3   normal
+   22  -126.867298  -14.69    -268.86       1.168    -14.365      7.7  10.2    4396.5   normal
+   23  -131.957333  -12.23    -281.09       1.174    -14.662      7.8   7.5    4548.2   normal
+   24  -137.048758  -13.10    -294.19       1.180    -14.953      7.9   7.3    4697.2   normal
+   25  -142.134234   -9.37    -303.56       1.180    -15.238      7.9  12.6    4866.0   normal
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 0.94
+   26  -147.228213  -14.71    -318.26       1.175    -15.519      8.2   9.9    5058.1   normal
+   27  -152.326655  -17.51    -335.77       1.184    -15.796      8.3  10.1    5189.4   normal
+   28  -157.414732  -11.00    -346.77       1.187    -16.066      8.4   6.5    5349.6   normal
+   29  -162.500764   -9.72    -356.49       1.188    -16.332      8.4  12.6    5514.0   normal
+   30  -167.588044  -10.50    -366.99       1.189    -16.594      8.6  12.2    5677.5   normal
+   31  -172.678526  -12.51    -379.50       1.192    -16.852      8.8   8.6    5835.9   normal
+   32  -177.769393  -12.75    -392.26       1.198    -17.106      8.8   7.2    5975.2   normal
+   33  -182.861736  -13.68    -405.93       1.208    -17.356      8.7  11.8    6090.3   normal
+   34  -187.952629  -12.77    -418.70       1.204    -17.603      8.8  14.5    6278.5   normal
+   35  -193.045917  -14.27    -432.98       1.210    -17.847      9.0  14.1    6416.2   normal
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 0.98
+   36  -198.133553  -10.73    -443.70       1.203    -18.087      9.2  13.5    6617.2   normal
+   37  -203.221996  -11.23    -454.93       1.206    -18.324      9.3  10.1    6769.3   normal
+   38  -208.314936  -14.05    -468.99       1.209    -18.558      9.3  14.2    6921.2   normal
+   39  -213.403147  -11.09    -480.07       1.212    -18.789      9.4  10.5    7068.9   normal
+   40  -218.501086  -17.19    -497.26       1.215    -19.018      9.5   8.8    7221.7   normal
+   41  -223.591485  -12.46    -509.72       1.217    -19.244      9.4  12.4    7371.7   normal
+   42  -228.683540  -13.50    -523.22       1.221    -19.467      9.5  11.5    7516.6   normal
+   43  -233.773380  -12.11    -535.33       1.223    -19.687      9.5  14.7    7663.9   normal
+   44  -238.863264  -12.14    -547.46       1.226    -19.905      9.7   9.5    7814.4   normal
+   45  -243.953347  -12.26    -559.72       1.229    -20.121      9.6  14.1    7959.5   normal
+   46  -249.046423  -14.14    -573.86       1.228    -20.335      9.7  14.7    8131.6   normal
+   47  -254.139662  -14.24    -588.10       1.227    -20.546      9.9  12.9    8298.1   normal
+   48  -259.230956  -13.02    -601.12       1.232    -20.755      9.9  14.0    8430.1   normal
+   49  -264.322098  -12.93    -614.05       1.241    -20.962     10.0  11.7    8534.0   normal
+   Wall Potential too small, increasing size by 5 %
+   New scaling factor 1.00
+   50  -269.414735  -13.86    -627.91       1.243    -21.167     10.1  16.3    8680.1   normal
+   51  -274.508301  -14.45    -642.36       1.249    -21.370     10.2  11.1    8802.6   normal
+ Solute energy not found
+   52  -279.588779   -6.23    -648.59       1.241    -21.571     10.2  10.5    9018.8   normal

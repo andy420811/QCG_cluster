@@ -1,0 +1,22 @@
+sh: line 1: 47937 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 47935 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 47936 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 47938 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 47966 Aborted                 xtb struc.xyz --gff --ceasefiles --opt 2> /dev/null > xtb.out
+sh: line 1: 47968 Aborted                 xtb struc.xyz --gff --ceasefiles --opt 2> /dev/null > xtb.out
+sh: line 1: 47982 Aborted                 xtb struc.xyz --gff --ceasefiles --opt 2> /dev/null > xtb.out
+sh: line 1: 47984 Aborted                 xtb struc.xyz --gff --ceasefiles --opt 2> /dev/null > xtb.out
+sh: line 1: 48000 Aborted                 xtb struc.xyz --gfn2 --ceasefiles --opt 2> /dev/null > xtb.out
+sh: line 1: 48002 Aborted                 xtb struc.xyz --gfn2 --ceasefiles --opt 2> /dev/null > xtb.out
+sh: line 1: 48014 Aborted                 xtb struc.xyz --gfn2 --ceasefiles --opt 2> /dev/null > xtb.out
+sh: line 1: 48016 Aborted                 xtb struc.xyz --gfn2 --ceasefiles --opt 2> /dev/null > xtb.out
+[--------------------------------------------------]    0.00% finished.sh: line 1: 48020 Aborted                 xtb cluster.xyz --gfn2 --sp --gbsa water 2> /dev/null > xtb_sp.out
+[#########################-------------------------]   50.00% finished.sh: line 1: 48019 Aborted                 xtb cluster.xyz --gfn2 --sp --gbsa water 2> /dev/null > xtb_sp.out
+[##################################################]  100.00% finished.sh: line 1: 48030 Aborted                 xtb solvent_shell.coord --gfn2 --sp --gbsa water > xtb.out 2> /dev/null
+sh: line 1: 48032 Aborted                 xtb solvent_shell.coord --gfn2 --sp --gbsa water > xtb.out 2> /dev/null
+sh: line 1: 48036 Aborted                 xtb solvent_cluster.coord --gfn2 --sp --lmo --chrg 0 2> /dev/null > xtb_lmo.out
+sh: line 1: 48035 Aborted                 xtb solvent_cluster.coord --gfn2 --sp --lmo --chrg 0 2> /dev/null > xtb_lmo.out
+sh: line 1: 48040 Aborted                 xtbiff solvent_cluster.lmo solvent.lmo -nfrag1 300 -ellips 25.056 15.358 15.091 -qcg 2> /dev/null > iff.out
+sh: line 1: 48039 Aborted                 xtbiff solvent_cluster.lmo solvent.lmo -nfrag1 300 -ellips 25.056 15.358 15.091 -qcg 2> /dev/null > iff.out
+error while reading input coordinates
+4794064.srvc1

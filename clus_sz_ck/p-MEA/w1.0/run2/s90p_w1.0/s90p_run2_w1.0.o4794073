@@ -1,0 +1,29 @@
+sh: line 1: 12582 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12585 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12589 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12586 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+cp: cp: cannot create regular file ‘FAILED-MTD/coord’cannot create regular file ‘FAILED-MTD/coord’: File exists: File exists
+
+cp: cannot create regular file ‘FAILED-MTD/.CHRG’: File exists
+cp: cannot create regular file ‘FAILED-MTD/.CHRG’: File exists
+cp: cannot create regular file ‘FAILED-MTD/xtb.out’: File exists
+sh: line 1: 12583 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12587 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12584 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12590 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12591 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+sh: line 1: 12588 Aborted                 xtb coord --gff --md > xtb.out 2> /dev/null
+forrtl: severe (24): end-of-file during read, unit -9633, file /work1/andy420811/4794073.srvc1/qcg_tmp/tmp_MTD/crest_rotamers_1.xyz
+Image              PC                Routine            Line        Source             
+crest              00000000014D8EA8  Unknown               Unknown  Unknown
+crest              000000000150E3AA  Unknown               Unknown  Unknown
+crest              000000000067B4AA  sort_and_check_          1073  confscript2_misc.f90
+crest              000000000067A4F8  multilevel_opt_           674  confscript2_misc.f90
+crest              000000000066E545  confscript2i_             131  confscript2_main.f90
+crest              0000000000656FA5  qcg_ensemble_             902  solvtool.f90
+crest              000000000064341F  crest_solvtool_            89  solvtool.f90
+crest              000000000069842E  MAIN__                    290  crest_main.f90
+crest              0000000000402242  Unknown               Unknown  Unknown
+crest              00000000017025D0  Unknown               Unknown  Unknown
+crest              000000000040210E  Unknown               Unknown  Unknown
+4794073.srvc1

@@ -1,0 +1,9 @@
+ input  file name : crest_rotamers_0.xyz
+ output file name : crest_rotamers_1.xyz
+ number of atoms                :   318
+ number of points on xyz files  :   2104
+ RMSD threshold                 :   0.1250
+ Bconst threshold               :   0.0100
+ population threshold           :   0.0500
+ conformer energy window  /kcal :   3.0000
+ # fragment in coord            :    26

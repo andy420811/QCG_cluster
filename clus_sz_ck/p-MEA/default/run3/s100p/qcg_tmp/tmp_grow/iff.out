@@ -1,0 +1,409 @@
+ 
+        ______________________________________
+       |                                      |
+       |           ==================         |
+       |               x T B I F F            |
+       |           ==================         |
+       |               S. Grimme              |
+       |        Universitaet Bonn, MCTC       |
+       |        2016-17,    Version 1.1       |
+       |     Wed Sep 27 12:42:11 CEST 2017    |
+       |______________________________________|
+ 
+        This code comes without any warranty
+        for non-commercial, academia use only.
+        cite xTB-IFF work as
+        S. Grimme, C. Bannwarth, E. Caldeweyher,
+        J. Pisarek, and A. Hansen
+        JCP, submitted
+        and additionally GFN-xTB as
+        S. Grimme, C. Bannwarth, P. Shushkov
+        JCTC, 13 (2017) 1989-2009
+ usage:
+ xtbiff <xtblmoinfo file1> <xtblmoinfo file2> [-opts]
+ where options are:
+ default   : global search in 6D intermolecular space
+ -sp       : single point energy at input structure
+ -opt      : local gradient optimization
+ -nfinal   : # of final structures to be optimized
+ -parent   : # of parents in genetic opt
+ -gen      : # of genetic cycles (generations)
+ -hess     : include estimated GRRHO from Lindh Hessian
+ -atm      : include ATM term in optimization. Default
+             is single point mode (only final energies
+             are ATM corrected)
+ -debug    : more output (files)
+ -stack    : skip some search steps for stacked systems
+ -gbsa <solvent> (currently switched off due to bugs)
+ use of the -gbsa <solvent> -hess options combined should
+ provide a realistic estimate of the full (observable)
+ free association energy in solution.
+ for condensed phase results use GBSA for monomers.
+ 
+ =============================
+  # OMP threads =          25
+ =============================
+ 
+ xtbhome directory:~/
+ 
+ taking internal default parameters
+S y s t e m  1     cluster.lmo   Nat: 165 Nlmo: 217
+S y s t e m  2     solvent.lmo   Nat:   3 Nlmo:   4
+charge on system 1       :  0.100000D+01
+charge on system 2       :  0.101000D-07
+ellipsoid axis lengths   :    23.809    14.594    14.340
+molecular C6AA D4 /au    :    144858.1
+molecular C6AB D4 /au    :      2564.6
+# of LP/pi/sigma LMOs    :  104    0    0
+# of off-center charges  :  208
+dipole moment (read/calc):   2.194   2.277
+# of LP/pi/sigma LMOs    :    2    0    0
+# of off-center charges  :    4
+dipole moment (read/calc):   0.872   0.882
+     ! NO SOLVENT MODEL USED !
+simulation temperature /K:  298.15
+LUMO energy 1 (read)           :  -4.139
+HOMO energy 1 (read)           : -12.890
+LUMO energy 2 (read)           :   2.243
+HOMO energy 2 (read)           : -12.147
+cpu  time for init    0.14 s
+wall time for init    0.01 s
+ 
+ initial structure
+     (Rx,Ry,Rz (Bohr)         alp,bet,gam (rad):
+  -0.0000   0.0000  -0.0000   0.0000   0.0000   0.0000
+R CMA (Angst) :     0.478
+R min (Angst) :     0.181
+dipole moment :     1.417
+intermolecular energies in kcal/mol
+E Pauli       :  2135.167
+E disp ATM    :     2.035
+E disp 2B     :    -9.023
+E disp total  :    -6.988
+E ES atom     :  1062.539
+E ES LMO      :     0.703
+E ES total    :  1063.243
+E induction   :     5.251
+E CT          :     0.000
+E cavity      :     2.614
+Eint total,gas:  3199.286
+               3199.28588480  <== Gint total
+ 
+ ..............................................
+           global optimization in 6D
+ 
+ done in fast mode, i.e, without ATM 
+ term but final energies include it.
+ If it should be included use -atm option.
+ ..............................................
+ 
+initial Rcma /A    :    0.48
+initial Rmin /A    :    0.18
+R sytem 1          :   14.54
+R sytem 2          :    0.84
+# of parents       :  100
+# of generations   :   10
+# final grad opts  :   15
+R grid step size   :    2.50
+ang step size /deg :   45.00
+# angular grid size:  512
+include input      : F
+pocket search      : F
+stack search       : T
+angular search     : T
+ 
+ ==============================
+  generation of start ensemble
+ ==============================
+# probe R points   :   17400
+Rg  probe int./kcal:   -2.38
+Rg+ probe int./kcal:   -0.55
+Rg- probe int./kcal:   -7.81
+ done. now CMA move ...
+# probe CMA  points:   56000
+lowest here  /kcal :    2.63
+ done. now angular grid ...
+# probe ang. points:   14848
+ done. Low-lying pre-screened start structures.
+ (Rx,Ry,Rz,alp,bet,gam,Eint in kcal/mol):
+  -6.746   6.746   6.746   3.142   3.142   0.000           2.63
+  -6.554   6.554   6.554   3.142   3.142   0.000           3.16
+  -6.361   6.361   6.361   3.142   3.142   0.000           4.70
+  -7.132   7.132   7.132   3.142   3.142   0.000           6.02
+   0.000   0.000 -11.351   3.142   3.142   3.142           7.32
+   0.000   0.000 -11.017   0.000   0.000   0.000           8.61
+  -7.710  -7.710   7.710   3.142   0.000   0.000           8.71
+  -7.517   7.517   7.517   3.142   3.142   3.142           9.59
+  -7.903  -7.903   7.903   3.142   0.000   0.000          10.85
+   0.000   0.000 -11.017   3.142   3.142   0.000          11.37
+ ==============================
+ genetic optimization algorithm
+ ==============================
+cycle  1 best structures:     1.0    1.5    1.9    1.9    2.3   average/sigma :    10.3     7.5
+cycle  2 best structures:    -0.1    0.9    1.0    1.2    1.3   average/sigma :     6.4     5.1
+cycle  3 best structures:    -0.3   -0.2   -0.1    0.1    0.1   average/sigma :     4.7     4.4
+cycle  4 best structures:    -0.4   -0.3   -0.2   -0.2   -0.1   average/sigma :     2.4     2.6
+cycle  5 best structures:    -0.7   -0.6   -0.4   -0.3   -0.2   average/sigma :     1.2     1.5
+cycle  6 best structures:    -0.7   -0.5   -0.4   -0.3   -0.2   average/sigma :     1.2     1.5
+cycle  7 best structures:    -0.7   -0.5   -0.5   -0.4   -0.3   average/sigma :     1.2     1.4
+cycle  8 best structures:    -0.7   -0.6   -0.5   -0.4   -0.4   average/sigma :     1.1     1.4
+cycle  9 best structures:    -0.7   -0.4   -0.3   -0.3   -0.2   average/sigma :     1.2     1.5
+cycle 10 best structures:    -0.7   -0.4   -0.4   -0.3   -0.3   average/sigma :     1.1     1.4
+ optimization            1
+  1  Gnorm:   0.00081  alpha:   0.60083  dEint /kcal :   -0.0640
+last gradient: 0.000805  energy gain:   -0.064  in cycles:  1
+ optimization            2
+  1  Gnorm:   0.00190  alpha:   0.16602  dEint /kcal :   -0.0559
+last gradient: 0.001901  energy gain:   -0.056  in cycles:  1
+ optimization            3
+  1  Gnorm:   0.00151  alpha:   0.98119  dEint /kcal :   -0.1075
+last gradient: 0.001514  energy gain:   -0.107  in cycles:  1
+ optimization            4
+  1  Gnorm:   0.00175  alpha:  -0.70855  dEint /kcal :   -0.1537
+last gradient: 0.001749  energy gain:   -0.154  in cycles:  1
+ optimization            5
+  1  Gnorm:   0.00220  alpha:   0.23559  dEint /kcal :   -0.2517
+last gradient: 0.002202  energy gain:   -0.252  in cycles:  1
+ optimization            6
+  1  Gnorm:   0.00243  alpha:   0.42589  dEint /kcal :   -0.0413
+last gradient: 0.002429  energy gain:   -0.041  in cycles:  1
+ optimization            7
+  1  Gnorm:   0.00183  alpha:  -0.98089  dEint /kcal :   -0.3273
+last gradient: 0.001830  energy gain:   -0.327  in cycles:  1
+ optimization            8
+  1  Gnorm:   0.00227  alpha:   0.26957  dEint /kcal :   -0.0731
+last gradient: 0.002270  energy gain:   -0.073  in cycles:  1
+ optimization            9
+  1  Gnorm:   0.00081  alpha:  -0.14288  dEint /kcal :   -0.0164
+last gradient: 0.000805  energy gain:   -0.016  in cycles:  1
+ optimization           10
+  1  Gnorm:   0.00275  alpha:   0.49906  dEint /kcal :   -0.2306
+last gradient: 0.002745  energy gain:   -0.231  in cycles:  1
+ optimization           11
+  1  Gnorm:   0.00257  alpha:   0.89381  dEint /kcal :   -0.5970
+last gradient: 0.002574  energy gain:   -0.597  in cycles:  1
+ optimization           12
+  1  Gnorm:   0.00280  alpha:   0.98661  dEint /kcal :   -0.4804
+last gradient: 0.002805  energy gain:   -0.480  in cycles:  1
+ optimization           13
+  1  Gnorm:   0.00128  alpha:  -0.20448  dEint /kcal :   -0.0037
+last gradient: 0.001284  energy gain:   -0.004  in cycles:  1
+ optimization           14
+  1  Gnorm:   0.00277  alpha:   0.70977  dEint /kcal :   -0.3755
+last gradient: 0.002769  energy gain:   -0.375  in cycles:  1
+ optimization           15
+  1  Gnorm:   0.00276  alpha:   0.27247  dEint /kcal :   -0.3105
+last gradient: 0.002764  energy gain:   -0.310  in cycles:  1
+ 
+ final structures (Rx,Ry,Rz,alp,bet,gam,E in kcal/mol):
+R CMA (Angst) :     6.534
+R min (Angst) :     2.829
+dipole moment :     1.592
+intermolecular energies in kcal/mol
+E Pauli       :     2.837
+E disp ATM    :     0.131
+E disp 2B     :    -2.416
+E disp total  :    -2.285
+E ES atom     :    -1.913
+E ES LMO      :    -2.263
+E ES total    :    -4.175
+E induction   :    -0.199
+E CT          :     0.000
+E cavity      :     3.226
+Eint total,gas:    -0.595
+                 -0.59539328  <== Gint total
+  -6.330  -9.855   1.969   2.923   3.019   2.487          -0.60
+R CMA (Angst) :     6.596
+R min (Angst) :     2.870
+dipole moment :     1.634
+intermolecular energies in kcal/mol
+E Pauli       :     2.763
+E disp ATM    :     0.135
+E disp 2B     :    -2.419
+E disp total  :    -2.285
+E ES atom     :    -1.778
+E ES LMO      :    -2.107
+E ES total    :    -3.885
+E induction   :    -0.187
+E CT          :     0.000
+E cavity      :     3.158
+Eint total,gas:    -0.436
+                 -0.43592859  <== Gint total
+  -6.681  -9.781   1.784   2.962   2.912   2.374          -0.44
+R CMA (Angst) :     6.511
+R min (Angst) :     2.760
+dipole moment :     1.524
+intermolecular energies in kcal/mol
+E Pauli       :     3.032
+E disp ATM    :     0.135
+E disp 2B     :    -2.461
+E disp total  :    -2.326
+E ES atom     :    -1.970
+E ES LMO      :    -2.236
+E ES total    :    -4.206
+E induction   :    -0.219
+E CT          :     0.000
+E cavity      :     3.328
+Eint total,gas:    -0.391
+                 -0.39072208  <== Gint total
+  -6.322  -9.882   1.614   3.165   2.793   2.422          -0.39
+R CMA (Angst) :     6.512
+R min (Angst) :     2.680
+dipole moment :     1.770
+intermolecular energies in kcal/mol
+E Pauli       :     3.093
+E disp ATM    :     0.134
+E disp 2B     :    -2.474
+E disp total  :    -2.339
+E ES atom     :    -1.715
+E ES LMO      :    -2.185
+E ES total    :    -3.900
+E induction   :    -0.189
+E CT          :     0.000
+E cavity      :     2.986
+Eint total,gas:    -0.350
+                 -0.35010960  <== Gint total
+  -6.271  -9.834   2.008   2.782   2.825   2.379          -0.35
+R CMA (Angst) :     6.426
+R min (Angst) :     2.624
+dipole moment :     1.535
+intermolecular energies in kcal/mol
+E Pauli       :     4.040
+E disp ATM    :     0.149
+E disp 2B     :    -2.660
+E disp total  :    -2.511
+E ES atom     :    -2.137
+E ES LMO      :    -2.387
+E ES total    :    -4.525
+E induction   :    -0.257
+E CT          :     0.000
+E cavity      :     3.036
+Eint total,gas:    -0.217
+                 -0.21693887  <== Gint total
+  -6.425  -9.651   1.365   3.050   3.365   2.538          -0.22
+R CMA (Angst) :     6.597
+R min (Angst) :     2.825
+dipole moment :     1.760
+intermolecular energies in kcal/mol
+E Pauli       :     2.648
+E disp ATM    :     0.130
+E disp 2B     :    -2.361
+E disp total  :    -2.231
+E ES atom     :    -1.591
+E ES LMO      :    -1.976
+E ES total    :    -3.567
+E induction   :    -0.171
+E CT          :     0.000
+E cavity      :     3.104
+Eint total,gas:    -0.216
+                 -0.21569686  <== Gint total
+  -6.477  -9.986   1.547   2.818   2.918   2.301          -0.22
+R CMA (Angst) :     6.433
+R min (Angst) :     2.648
+dipole moment :     1.715
+intermolecular energies in kcal/mol
+E Pauli       :     3.947
+E disp ATM    :     0.149
+E disp 2B     :    -2.675
+E disp total  :    -2.525
+E ES atom     :    -1.818
+E ES LMO      :    -2.283
+E ES total    :    -4.101
+E induction   :    -0.229
+E CT          :     0.000
+E cavity      :     2.838
+Eint total,gas:    -0.070
+                 -0.06997122  <== Gint total
+  -6.378  -9.636   1.708   2.826   2.828   2.432          -0.07
+R CMA (Angst) :     6.481
+R min (Angst) :     2.761
+dipole moment :     1.568
+intermolecular energies in kcal/mol
+E Pauli       :     3.620
+E disp ATM    :     0.147
+E disp 2B     :    -2.619
+E disp total  :    -2.471
+E ES atom     :    -1.949
+E ES LMO      :    -2.248
+E ES total    :    -4.197
+E induction   :    -0.230
+E CT          :     0.000
+E cavity      :     3.218
+Eint total,gas:    -0.061
+                 -0.06061653  <== Gint total
+  -6.544  -9.620   1.729   3.207   2.893   2.217          -0.06
+R CMA (Angst) :     6.555
+R min (Angst) :     2.527
+dipole moment :     2.675
+intermolecular energies in kcal/mol
+E Pauli       :     3.348
+E disp ATM    :     0.110
+E disp 2B     :    -2.302
+E disp total  :    -2.192
+E ES atom     :    -1.158
+E ES LMO      :    -2.939
+E ES total    :    -4.097
+E induction   :    -0.125
+E CT          :     0.000
+E cavity      :     3.033
+Eint total,gas:    -0.033
+                 -0.03300924  <== Gint total
+  -6.017   6.403   7.697   4.096   2.460   5.616          -0.03
+R CMA (Angst) :     6.526
+R min (Angst) :     2.440
+dipole moment :     2.734
+intermolecular energies in kcal/mol
+E Pauli       :     3.706
+E disp ATM    :     0.114
+E disp 2B     :    -2.375
+E disp total  :    -2.261
+E ES atom     :    -1.345
+E ES LMO      :    -3.003
+E ES total    :    -4.349
+E induction   :    -0.150
+E CT          :     0.000
+E cavity      :     3.079
+Eint total,gas:     0.025
+                  0.02482896  <== Gint total
+  -6.033   6.296   7.684   3.976   2.421   5.583           0.02
+
+ MATRIX PRINTED:  RMSD
+
+           1         2         3         4         5         6
+
+    1   0.00000
+    2   0.41124   0.00000
+    3   0.39415   0.42663   0.00000
+    4   0.15024   0.48033   0.44416   0.00000
+    5   0.67117   0.56340   0.46071   0.75271   0.00000
+    6   0.48020   0.38219   0.27638   0.53075   0.47369   0.00000
+    7   0.36157   0.35475   0.31846   0.37694   0.45397   0.40535
+    8   0.44836   0.26278   0.38006   0.50063   0.48365   0.45889
+    9  17.27995  17.28198  17.42189  17.24718  17.30428  17.55034
+   10  17.17365  17.17572  17.31617  17.14075  17.19906  17.44441
+
+           7         8         9        10
+ 
+    7   0.00000
+    8   0.27674   0.00000
+    9  17.16452  17.14172   0.00000
+   10  17.05848  17.03599   0.12655   0.00000
+ 
+ best (resorted to full energy) structures on file xtbscreen.xyz
+ best structure (Rx,Ry,Rz,alp,bet,gam,E in kcal/mol):
+R CMA (Angst) :     6.534
+R min (Angst) :     2.829
+dipole moment :     1.592
+intermolecular energies in kcal/mol
+E Pauli       :     2.837
+E disp ATM    :     0.131
+E disp 2B     :    -2.416
+E disp total  :    -2.285
+E ES atom     :    -1.913
+E ES LMO      :    -2.263
+E ES total    :    -4.175
+E induction   :    -0.199
+E CT          :     0.000
+E cavity      :     3.226
+Eint total,gas:    -0.595
+                 -0.59539328  <== Gint total

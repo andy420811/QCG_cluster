@@ -1,0 +1,39 @@
+sh: line 1: 118466 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 118468 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 118470 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118472 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118474 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118476 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 118478 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 118481 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118483 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118485 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118487 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 118489 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 118491 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118493 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118496 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118498 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 118500 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 118502 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118504 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118506 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118508 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 118510 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 118512 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118514 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118516 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118518 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 118520 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 118522 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118524 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118526 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118528 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 118530 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 118532 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118534 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118536 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 118538 Aborted                 xtb xtbopt.coord --gfn2 --sp --lmo > xtb.out 2> /dev/null
+sh: line 1: 118540 Aborted                 xtbiff cluster.lmo solvent.lmo -nfrag1 12 -ellips 17.851 10.942 10.751 -qcg > iff.out 2> /dev/null
+error while reading input coordinates
+4794032.srvc1
