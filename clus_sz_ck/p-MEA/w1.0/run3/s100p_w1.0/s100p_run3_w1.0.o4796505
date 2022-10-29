@@ -1,0 +1,9 @@
+sh: line 1: 35323 Aborted                 xtb cluster.coord --gfn2 --opt 0.00 --input xcontrol > xtb_opt.out 2> /dev/null
+sh: line 1: 35325 Aborted                 xtb xtbopt.coord --gfn2 --sp --gbsa water > xtb_sp.out 2> /dev/null
+sh: line 1: 35327 Aborted                 xtb solute_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 35329 Aborted                 xtb solvent_cut.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 35331 Aborted                 xtb cluster.coord --gfn2 --sp > xtb.out 2> /dev/null
+sh: line 1: 35334 Aborted                 xtb xtbopt.coord --gfn2 --sp --lmo > xtb.out 2> /dev/null
+sh: line 1: 35336 Aborted                 xtbiff cluster.lmo solvent.lmo -nfrag1 12 -ellips 25.914 15.884 15.608 -qcg > iff.out 2> /dev/null
+error while reading input coordinates
+4796505.srvc1

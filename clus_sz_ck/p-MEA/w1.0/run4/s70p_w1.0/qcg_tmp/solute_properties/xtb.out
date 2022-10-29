@@ -76,12 +76,12 @@
    J. Seibert, P. Shushkov, S. Spicher, M. Stahn, M. Steiner, T. Strunk,
    J. Stückrath, T. Rose, and J. Unsleber
    
- * started run on 2022/10/27 at 21:58:13.903     
+ * started run on 2022/10/28 at 01:56:32.369     
 
            -------------------------------------------------
           |                Calculation Setup                |
            -------------------------------------------------
 
           program call               : xtb tmpcoord --gfn2 --opt
-          hostname                   : cn0165
+          hostname                   : cn0755
           coordinate file            : tmpcoord

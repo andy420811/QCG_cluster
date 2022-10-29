@@ -1,0 +1,5 @@
+1 100       Error
+2 80 90		Error fail
+3 60 100	Error 
+
+ 
