@@ -26,7 +26,7 @@ export OMP_STACKSIZE=160G     ## memory size
 export OMP_NUM_THREADS=25,1  ## cores used
 
 ## execute command line
-crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv 100 --T 25 --gsolv --nclus 20 --gbsa water > crest.out
+crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv 100   --T 25 --gsolv --nclus 20 --gbsa water > crest.out
 
 ## copy back
 rsync -a * "$PBS_O_WORKDIR"
