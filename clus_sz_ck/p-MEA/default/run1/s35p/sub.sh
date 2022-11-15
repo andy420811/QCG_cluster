@@ -16,9 +16,9 @@ jobid=$PBS_JOBID
 
 
 ## copy the file from submission folder to the working directory
-##cp "$PBS_O_WORKDIR"/input.xyz .
-##cp "$PBS_O_WORKDIR"/water.xyz .
-rsync -a "$PBS_O_WORKDIR"/* .
+cp "$PBS_O_WORKDIR"/input.xyz .
+cp "$PBS_O_WORKDIR"/water.xyz .
+##rsync -a "$PBS_O_WORKDIR"/* .
 
 
 ## environment variables for xtb
@@ -34,7 +34,6 @@ rsync -a * "$PBS_O_WORKDIR"
 ## remove the tmp files
 cd ..
 echo $jobid
-rm -r $jobid
 
 exit
 

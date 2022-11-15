@@ -2,7 +2,7 @@ from ase.io import write,read
 from ase.io.trajectory import Trajectory
 import numpy as np
 
-path='/home/andy420811/Work/TEST/XTB/clus_sz_ck/p-MEA'
+path='/home/andy420811/Work/TEST/XTB/clus_sz_ck/p-MEA/default'
 size = [25,30,35,45,60,70,80,90,100]
 #size=[25]
 for i in range(5):

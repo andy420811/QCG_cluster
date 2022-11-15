@@ -16,7 +16,7 @@ if [ -f "$restartf" ]; then
 	done < $restartf
 fi
 
-for i in 1 2 3 4 5
+for i in 1
 do
 	if [ $i -lt $ipre ]; then
 		continue
@@ -24,7 +24,7 @@ do
 
 	mkdir -p run"$i"
 	cd run"$i"
-	for j in 25 30 35 40 45 60 70 80 90 100
+	for j in 25 30 35 40 45 60 70 80 90 100 200
 	do	
 		if 	[[ $j -lt $jpre || $j -eq $jpre ]]; then		
 			if [ $i -eq $ipre ]; then
@@ -32,24 +32,26 @@ do
 			fi
 		fi
 
-		mkdir -p s"$j"p_w1.0
-		cd s"$j"p_w1.0
+		mkdir -p s"$j"p
+		cd s"$j"p
 		
 		## restart
 		if [ ! -f "crest.out" ]
 		then
 		rsync -a ../../Protonated\ 2-aminoethanol\ \(P-MEA\).xyz input.xyz 
 		rsync -a ../../water.xyz ../../sub.sh .
+		else
+		continue
 		fi
 
 
 		##cd s"$j"_w1.0
-		sed -i "s/crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv 60  --T 25 --gsolv --nclus 20 --gbsa water > crest.out/crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv "$j" --T 25 --gsolv --nclus 20 --gbsa water --wscal 1.0 > crest.out/" sub.sh
+		sed -i "s/crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv 60  --T 25 --gsolv --nclus 20 --gbsa water > crest.out/crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv "$j" --T 25 --gsolv --nclus 20 --gbsa water > crest.out/" sub.sh
 		echo $i $j
 
 		##sed -i "s/--nsolv 60/--nsolv "$j" --wscal 1.0 /" sub.sh		
 
-		if ! qsub -N s"$j"p_run"$i"_w1.0 sub.sh 
+		if ! qsub -N s"$j"p_run"$i" sub.sh 
 		then
 			printf ""$i"\n"$j"" > lastrun.txt	
 			exit 1
