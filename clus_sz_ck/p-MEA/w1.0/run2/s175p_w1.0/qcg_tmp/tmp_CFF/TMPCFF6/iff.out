@@ -1,0 +1,211 @@
+ 
+        ______________________________________
+       |                                      |
+       |           ==================         |
+       |               x T B I F F            |
+       |           ==================         |
+       |               S. Grimme              |
+       |        Universitaet Bonn, MCTC       |
+       |        2016-17,    Version 1.1       |
+       |     Wed Sep 27 12:42:11 CEST 2017    |
+       |______________________________________|
+ 
+        This code comes without any warranty
+        for non-commercial, academia use only.
+        cite xTB-IFF work as
+        S. Grimme, C. Bannwarth, E. Caldeweyher,
+        J. Pisarek, and A. Hansen
+        JCP, submitted
+        and additionally GFN-xTB as
+        S. Grimme, C. Bannwarth, P. Shushkov
+        JCTC, 13 (2017) 1989-2009
+ usage:
+ xtbiff <xtblmoinfo file1> <xtblmoinfo file2> [-opts]
+ where options are:
+ default   : global search in 6D intermolecular space
+ -sp       : single point energy at input structure
+ -opt      : local gradient optimization
+ -nfinal   : # of final structures to be optimized
+ -parent   : # of parents in genetic opt
+ -gen      : # of genetic cycles (generations)
+ -hess     : include estimated GRRHO from Lindh Hessian
+ -atm      : include ATM term in optimization. Default
+             is single point mode (only final energies
+             are ATM corrected)
+ -debug    : more output (files)
+ -stack    : skip some search steps for stacked systems
+ -gbsa <solvent> (currently switched off due to bugs)
+ use of the -gbsa <solvent> -hess options combined should
+ provide a realistic estimate of the full (observable)
+ free association energy in solution.
+ for condensed phase results use GBSA for monomers.
+ 
+ =============================
+  # OMP threads =           2
+ =============================
+ 
+ xtbhome directory:~/
+ 
+ taking internal default parameters
+S y s t e m  1     solvent_cluster.lmo   Nat: 531 Nlmo: 710
+S y s t e m  2     solvent.lmo   Nat:   3 Nlmo:   4
+charge on system 1       :  0.960000D-08
+charge on system 2       :  0.101000D-07
+ellipsoid axis lengths   :    28.712    17.599    17.293
+molecular C6AA D4 /au    :   1449038.4
+molecular C6AB D4 /au    :      8213.1
+# of LP/pi/sigma LMOs    :  264   27    0
+# of off-center charges  :  609
+dipole moment (read/calc):   6.438   5.371
+# of LP/pi/sigma LMOs    :    2    0    0
+# of off-center charges  :    4
+dipole moment (read/calc):   0.872   0.882
+     ! NO SOLVENT MODEL USED !
+simulation temperature /K:  298.15
+LUMO energy 1 (read)           :  -2.330
+HOMO energy 1 (read)           :  -8.546
+LUMO energy 2 (read)           :   2.243
+HOMO energy 2 (read)           : -12.147
+cpu  time for init    0.14 s
+wall time for init    0.07 s
+ 
+ initial structure
+     (Rx,Ry,Rz (Bohr)         alp,bet,gam (rad):
+   0.1377  -0.0153  -0.2918   0.0000   0.0000   0.0000
+ 
+ ..............................................
+           global optimization in 6D
+ 
+ done in fast mode, i.e, without ATM 
+ term but final energies include it.
+ If it should be included use -atm option.
+ ..............................................
+ 
+initial Rcma /A    :    0.00
+initial Rmin /A    :    0.83
+R sytem 1          :   20.96
+R sytem 2          :    0.84
+# of parents       :  100
+# of generations   :   10
+# final grad opts  :   15
+R grid step size   :    2.50
+ang step size /deg :   45.00
+# angular grid size:  512
+include input      : F
+pocket search      : F
+stack search       : T
+angular search     : T
+ 
+ ==============================
+  generation of start ensemble
+ ==============================
+# probe R points   :   43645
+Rg  probe int./kcal:   -2.55
+Rg+ probe int./kcal:   -4.75
+Rg- probe int./kcal:   -5.14
+ done. now CMA move ...
+# probe CMA  points:   56000
+lowest here  /kcal :********
+ done. now angular grid ...
+# probe ang. points:   31744
+ done. Low-lying pre-screened start structures.
+ (Rx,Ry,Rz,alp,bet,gam,Eint in kcal/mol):
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+ ==============================
+ genetic optimization algorithm
+ ==============================
+cycle  1 best structures: ***********************************   average/sigma :****************
+cycle  2 best structures: ***********************************   average/sigma :****************
+cycle  3 best structures: ***********************************   average/sigma :****************
+cycle  4 best structures: ***********************************   average/sigma :****************
+cycle  5 best structures: ***********************************   average/sigma :****************
+cycle  6 best structures: ***********************************   average/sigma :****************
+cycle  7 best structures: ***********************************   average/sigma :****************
+cycle  8 best structures: ***********************************   average/sigma :****************
+cycle  9 best structures: ***********************************   average/sigma :****************
+cycle 10 best structures: ***********************************   average/sigma :****************
+ optimization            1
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            2
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            3
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            4
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            5
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            6
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            7
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            8
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization            9
+ matrix singular in opt. switching to fall back algo
+ optimization           10
+ matrix singular in opt. switching to fall back algo
+ optimization           11
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization           12
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization           13
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization           14
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ optimization           15
+ matrix singular in opt. switching to fall back algo
+ iter     E          gnorm        displ       alpha      dR (start)
+   1************      0.0000      0.0000      9.8850      0.0000
+   2************      0.0000      0.0000      9.8850      0.0000
+ 
+ final structures (Rx,Ry,Rz,alp,bet,gam,E in kcal/mol):
+
+ MATRIX PRINTED:  RMSD
+ 
+ best (resorted to full energy) structures on file xtbscreen.xyz
+ best structure (Rx,Ry,Rz,alp,bet,gam,E in kcal/mol):

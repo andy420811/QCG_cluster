@@ -1,0 +1,20 @@
+ recieved SIGTERM, terminating...
+forrtl: severe (28): CLOSE error, unit -363, file "Unknown"
+Image              PC                Routine            Line        Source             
+crest              00000000014DE4F3  Unknown               Unknown  Unknown
+crest              00000000015128FF  Unknown               Unknown  Unknown
+crest              00000000014DD99A  Unknown               Unknown  Unknown
+crest              000000000045C348  wsigterm_                  10  sigterm.f90
+crest              0000000001700300  Unknown               Unknown  Unknown
+crest              0000000001781EBB  Unknown               Unknown  Unknown
+crest              00000000014D717C  Unknown               Unknown  Unknown
+crest              00000000014D6744  Unknown               Unknown  Unknown
+crest              00000000004134FC  iomod_mp_remove_           86  iomod.F90
+crest              000000000066454B  xtbsp3_                    49  solvtool_misc.f90
+crest              000000000064F385  get_interaction_e        2614  solvtool.f90
+crest              0000000000649E9E  qcg_grow_                 600  solvtool.f90
+crest              00000000006428C7  crest_solvtool_            74  solvtool.f90
+crest              000000000069842E  MAIN__                    290  crest_main.f90
+crest              0000000000402242  Unknown               Unknown  Unknown
+crest              00000000017025D0  Unknown               Unknown  Unknown
+crest              000000000040210E  Unknown               Unknown  Unknown

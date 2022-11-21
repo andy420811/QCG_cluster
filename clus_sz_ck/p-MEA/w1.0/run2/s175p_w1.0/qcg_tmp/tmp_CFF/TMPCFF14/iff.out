@@ -1,0 +1,597 @@
+ 
+        ______________________________________
+       |                                      |
+       |           ==================         |
+       |               x T B I F F            |
+       |           ==================         |
+       |               S. Grimme              |
+       |        Universitaet Bonn, MCTC       |
+       |        2016-17,    Version 1.1       |
+       |     Wed Sep 27 12:42:11 CEST 2017    |
+       |______________________________________|
+ 
+        This code comes without any warranty
+        for non-commercial, academia use only.
+        cite xTB-IFF work as
+        S. Grimme, C. Bannwarth, E. Caldeweyher,
+        J. Pisarek, and A. Hansen
+        JCP, submitted
+        and additionally GFN-xTB as
+        S. Grimme, C. Bannwarth, P. Shushkov
+        JCTC, 13 (2017) 1989-2009
+ usage:
+ xtbiff <xtblmoinfo file1> <xtblmoinfo file2> [-opts]
+ where options are:
+ default   : global search in 6D intermolecular space
+ -sp       : single point energy at input structure
+ -opt      : local gradient optimization
+ -nfinal   : # of final structures to be optimized
+ -parent   : # of parents in genetic opt
+ -gen      : # of genetic cycles (generations)
+ -hess     : include estimated GRRHO from Lindh Hessian
+ -atm      : include ATM term in optimization. Default
+             is single point mode (only final energies
+             are ATM corrected)
+ -debug    : more output (files)
+ -stack    : skip some search steps for stacked systems
+ -gbsa <solvent> (currently switched off due to bugs)
+ use of the -gbsa <solvent> -hess options combined should
+ provide a realistic estimate of the full (observable)
+ free association energy in solution.
+ for condensed phase results use GBSA for monomers.
+ 
+ =============================
+  # OMP threads =           2
+ =============================
+ 
+ xtbhome directory:~/
+ 
+ taking internal default parameters
+S y s t e m  1     solvent_cluster.lmo   Nat: 531 Nlmo: 714
+S y s t e m  2     solvent.lmo   Nat:   3 Nlmo:   4
+charge on system 1       :  0.111000D-07
+charge on system 2       :  0.101000D-07
+ellipsoid axis lengths   :    28.712    17.599    17.293
+molecular C6AA D4 /au    :   1448657.0
+molecular C6AB D4 /au    :      8212.0
+# of LP/pi/sigma LMOs    :  250   37    0
+# of off-center charges  :  611
+dipole moment (read/calc):   2.050   2.033
+# of LP/pi/sigma LMOs    :    2    0    0
+# of off-center charges  :    4
+dipole moment (read/calc):   0.872   0.882
+     ! NO SOLVENT MODEL USED !
+simulation temperature /K:  298.15
+LUMO energy 1 (read)           :  -1.764
+HOMO energy 1 (read)           :  -9.144
+LUMO energy 2 (read)           :   2.243
+HOMO energy 2 (read)           : -12.147
+cpu  time for init    0.14 s
+wall time for init    0.07 s
+ 
+ initial structure
+     (Rx,Ry,Rz (Bohr)         alp,bet,gam (rad):
+   0.0012  -0.0230  -0.0120   0.0000   0.0000   0.0000
+R CMA (Angst) :     0.014
+R min (Angst) :     1.182
+dipole moment :     1.831
+intermolecular energies in kcal/mol
+E Pauli       :   323.797
+E disp ATM    :     1.066
+E disp 2B     :    -8.671
+E disp total  :    -7.605
+E ES atom     :   -67.177
+E ES LMO      :    -3.845
+E ES total    :   -71.022
+E induction   :     6.091
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1555.725
+               1555.72503808  <== Gint total
+ 
+ ..............................................
+           global optimization in 6D
+ 
+ done in fast mode, i.e, without ATM 
+ term but final energies include it.
+ If it should be included use -atm option.
+ ..............................................
+ 
+initial Rcma /A    :    0.00
+initial Rmin /A    :    1.18
+R sytem 1          :   20.37
+R sytem 2          :    0.84
+# of parents       :  100
+# of generations   :   10
+# final grad opts  :   15
+R grid step size   :    2.50
+ang step size /deg :   45.00
+# angular grid size:  512
+include input      : F
+pocket search      : F
+stack search       : T
+angular search     : T
+ 
+ ==============================
+  generation of start ensemble
+ ==============================
+# probe R points   :   29435
+Rg  probe int./kcal:   -2.52
+Rg+ probe int./kcal:   -4.75
+Rg- probe int./kcal:   -4.83
+ done. now CMA move ...
+# probe CMA  points:   56000
+lowest here  /kcal : 1329.88
+ done. now angular grid ...
+# probe ang. points:   19456
+ done. Low-lying pre-screened start structures.
+ (Rx,Ry,Rz,alp,bet,gam,Eint in kcal/mol):
+   0.000   0.000   0.000   0.000   0.000   0.000        1560.38
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+   0.000   0.000   0.000   0.000   0.000   0.000     **********
+ ==============================
+ genetic optimization algorithm
+ ==============================
+cycle  1 best structures:  1560.4 2156.5 2713.4 3066.9 3850.3   average/sigma :****************
+cycle  2 best structures:  1560.4 1925.3 2690.2 3684.5 5226.1   average/sigma :****************
+cycle  3 best structures:  1560.4 1992.5 2395.9 2733.5 3684.5   average/sigma :****************
+cycle  4 best structures:  1560.4 2419.7 2917.9 3264.2 3651.3   average/sigma :****************
+cycle  5 best structures:  1560.4 1851.1 2337.0 2623.3 3286.8   average/sigma :****************
+cycle  6 best structures:  1560.4 1871.9 2489.2 3175.4 3595.6   average/sigma :****************
+cycle  7 best structures:  1560.4 1753.9 2354.4 3007.7 3761.4   average/sigma :****************
+cycle  8 best structures:  1560.4 1932.6 2623.5 3496.4 3885.3   average/sigma :****************
+cycle  9 best structures:  1560.4 1837.9 2894.9 3218.1 3593.4   average/sigma :****************
+cycle 10 best structures:  1460.3 1560.4 1984.5 2269.5 2610.4   average/sigma :****************
+ optimization            1
+  1  Gnorm:   0.14103  alpha:   1.22533  dEint /kcal :  -66.7307
+  2  Gnorm:   0.04184  alpha:   0.98071  dEint /kcal :  -95.8834
+  3  Gnorm:   0.01320  alpha:   0.28126  dEint /kcal :  -98.0604
+  4  Gnorm:   0.01177  alpha:   0.50282  dEint /kcal : -101.8936
+  5  Gnorm:   0.00374  alpha:   0.37678  dEint /kcal : -102.0031
+last gradient: 0.003741  energy gain: -102.003  in cycles:  5
+ optimization            2
+  1  Gnorm:   0.20199  alpha:   1.21244  dEint /kcal : -132.5807
+  2  Gnorm:   0.02709  alpha:   1.60813  dEint /kcal : -147.2070
+  3  Gnorm:   0.02017  alpha:  -0.02724  dEint /kcal : -147.2887
+  4  Gnorm:  47.10713  alpha:   0.09414  dEint /kcal : -148.5165
+  5  Gnorm:   0.00950  alpha:   3.24390  dEint /kcal : -172.9293
+  6  Gnorm:   0.01556  alpha:   1.37986  dEint /kcal : -176.9149
+  7  Gnorm:   0.02869  alpha:   0.01161  dEint /kcal : -176.9864
+  8  Gnorm:  13.94263  alpha:   0.50000  dEint /kcal : -176.9864
+  9  Gnorm:   0.04345  alpha:   0.83797  dEint /kcal : -146.7033
+ 10  Gnorm:   0.03629  alpha:  -0.38579  dEint /kcal : -156.0253
+ 11  Gnorm:   0.04420  alpha:   0.33249  dEint /kcal : -164.6996
+ 12  Gnorm:   0.01334  alpha:   0.66499  dEint /kcal : -164.9205
+ 13  Gnorm:   0.01226  alpha:   1.77234  dEint /kcal : -168.6423
+ 14  Gnorm:   0.02332  alpha:  -0.00739  dEint /kcal : -168.6898
+ 15  Gnorm:  17.09516  alpha:   0.50000  dEint /kcal : -168.6898
+ 16  Gnorm:   0.02707  alpha:   0.84721  dEint /kcal : -164.1497
+ 17  Gnorm:   0.01783  alpha:   0.60863  dEint /kcal : -168.3308
+ 18  Gnorm:   0.00835  alpha:  -0.68077  dEint /kcal : -173.1037
+ 19  Gnorm:   0.01227  alpha:   0.51476  dEint /kcal : -177.8979
+ 20  Gnorm:   0.03295  alpha:   0.65691  dEint /kcal : -182.8576
+ 21  Gnorm:   0.01585  alpha:  -0.19119  dEint /kcal : -183.3108
+ 22  Gnorm:   0.01675  alpha:   0.00799  dEint /kcal : -183.4625
+ 23  Gnorm:  20.63613  alpha:   0.00018  dEint /kcal : -183.4833
+ 24  Gnorm:  20.70493  alpha:   0.50000  dEint /kcal : -183.4833
+ 25  Gnorm:   0.12627  alpha:   0.63658  dEint /kcal : -141.1192
+last gradient: 0.126270  energy gain: -183.483  in cycles: 26
+ optimization            3
+  1  Gnorm:   0.59878  alpha:   3.74442  dEint /kcal : -516.7631
+  2  Gnorm:   0.12689  alpha:   2.24675  dEint /kcal : -587.7765
+  3  Gnorm:   0.01772  alpha:   0.69561  dEint /kcal : -594.6169
+  4  Gnorm:   0.00921  alpha:   0.85055  dEint /kcal : -596.4795
+  5  Gnorm:   0.00622  alpha:   0.03220  dEint /kcal : -596.5193
+  6  Gnorm:   0.00743  alpha:  -0.98312  dEint /kcal : -599.1407
+  7  Gnorm:   0.01198  alpha:  -0.83639  dEint /kcal : -599.7945
+  8  Gnorm:   0.01922  alpha:   0.22945  dEint /kcal : -600.4141
+  9  Gnorm:   0.01708  alpha:  -0.62708  dEint /kcal : -600.5627
+ 10  Gnorm:   0.02365  alpha:   0.32259  dEint /kcal : -601.3393
+ 11  Gnorm:   0.01519  alpha:   0.44843  dEint /kcal : -602.7005
+ 12  Gnorm:   0.01220  alpha:   1.40873  dEint /kcal : -607.7265
+ 13  Gnorm:   0.01452  alpha:  -0.01566  dEint /kcal : -607.7696
+ 14  Gnorm: 116.52781  alpha:   0.50000  dEint /kcal : -607.7696
+ 15  Gnorm:   0.08396  alpha:   1.78261  dEint /kcal : -599.8214
+ 16  Gnorm:   0.01386  alpha:   0.32057  dEint /kcal : -602.4938
+ 17  Gnorm:   0.00382  alpha:  -0.98862  dEint /kcal : -603.0422
+last gradient: 0.003823  energy gain: -607.770  in cycles: 17
+ optimization            4
+  1  Gnorm:   4.04185  alpha:   9.89989  dEint /kcal : -815.2146
+  2  Gnorm:   0.07066  alpha:   0.10776  dEint /kcal : -815.3518
+  3  Gnorm:   0.06284  alpha:   0.65250  dEint /kcal : -877.9117
+  4  Gnorm:   0.04909  alpha:   1.68080  dEint /kcal : -905.8423
+  5  Gnorm:   0.01553  alpha:   1.29994  dEint /kcal : -914.2563
+  6  Gnorm:   0.01079  alpha:  -0.00998  dEint /kcal : -914.2582
+  7  Gnorm:   0.01078  alpha:  -0.33322  dEint /kcal : -915.5641
+  8  Gnorm:   0.01178  alpha:   0.17656  dEint /kcal : -917.0303
+  9  Gnorm:   0.00967  alpha:   0.19328  dEint /kcal : -918.1696
+ 10  Gnorm:   0.00825  alpha:   0.32246  dEint /kcal : -920.6046
+ 11  Gnorm:   0.00317  alpha:  -0.03934  dEint /kcal : -920.6121
+last gradient: 0.003165  energy gain: -920.612  in cycles: 11
+ optimization            5
+  1  Gnorm:   3.51233  alpha:   1.81586  dEint /kcal : -614.6796
+  2  Gnorm:   0.71237  alpha:   7.03204  dEint /kcal : -999.3196
+  3  Gnorm:   0.20847  alpha:   0.42779  dEint /kcal :-1160.5290
+  4  Gnorm:   0.08317  alpha:   0.32276  dEint /kcal :-1172.2816
+  5  Gnorm:   0.06626  alpha:   1.61376  dEint /kcal :-1199.8728
+  6  Gnorm:   0.02547  alpha:   1.21317  dEint /kcal :-1209.9745
+  7  Gnorm:   0.01423  alpha:   0.64672  dEint /kcal :-1212.0224
+  8  Gnorm:   0.00607  alpha:   0.30655  dEint /kcal :-1212.2223
+  9  Gnorm:   0.00563  alpha:   0.12473  dEint /kcal :-1212.3299
+ 10  Gnorm:   0.00518  alpha:  -0.00740  dEint /kcal :-1212.3300
+ 11  Gnorm:   0.00524  alpha:   0.84253  dEint /kcal :-1212.4505
+ 12  Gnorm:   0.00281  alpha:  -0.72731  dEint /kcal :-1212.6532
+last gradient: 0.002806  energy gain:-1212.653  in cycles: 12
+ optimization            6
+  1  Gnorm:   6.55977  alpha:   4.46250  dEint /kcal :-1342.9704
+  2  Gnorm:   0.54018  alpha:   2.30159  dEint /kcal :-1784.0907
+  3  Gnorm:   0.10048  alpha:  -0.26801  dEint /kcal :-1940.1813
+  4  Gnorm:   0.06539  alpha:   0.17899  dEint /kcal :-1940.7117
+  5  Gnorm:   0.06270  alpha:   2.35892  dEint /kcal :-1971.9713
+  6  Gnorm:   0.02655  alpha:   0.56625  dEint /kcal :-1976.5425
+  7  Gnorm:   0.01803  alpha:   0.50969  dEint /kcal :-1979.3959
+  8  Gnorm:   0.00732  alpha:   1.42469  dEint /kcal :-1981.8253
+  9  Gnorm:   0.00677  alpha:  -0.38813  dEint /kcal :-1981.8871
+ 10  Gnorm:   0.00975  alpha:  -0.10909  dEint /kcal :-1982.1645
+ 11  Gnorm:   0.01157  alpha:   0.77269  dEint /kcal :-1988.0747
+ 12  Gnorm:   0.00514  alpha:  -0.12134  dEint /kcal :-1988.1841
+ 13  Gnorm:   0.00573  alpha:  -0.07642  dEint /kcal :-1988.1952
+ 14  Gnorm:   0.00593  alpha:  -0.64961  dEint /kcal :-1988.2905
+ 15  Gnorm:   0.00716  alpha:   1.25757  dEint /kcal :-1989.5872
+ 16  Gnorm:   0.00337  alpha:   0.36911  dEint /kcal :-1989.8531
+last gradient: 0.003371  energy gain:-1989.853  in cycles: 16
+ optimization            7
+  1  Gnorm:  14.80247  alpha:   8.27685  dEint /kcal :-1803.4609
+  2  Gnorm:   0.31700  alpha:   3.01790  dEint /kcal :-2240.2160
+  3  Gnorm:   0.06923  alpha:   1.18798  dEint /kcal :-2361.6778
+  4  Gnorm:   0.03607  alpha:   0.55087  dEint /kcal :-2369.2844
+  5  Gnorm:   0.01898  alpha:   0.33709  dEint /kcal :-2369.3748
+  6  Gnorm:  47.84566  alpha:  -0.00260  dEint /kcal :-2369.5125
+  7  Gnorm:   0.01730  alpha:   0.45787  dEint /kcal :-2369.7207
+  8  Gnorm:   0.00981  alpha:  -0.98850  dEint /kcal :-2371.1149
+  9  Gnorm:   0.01803  alpha:  -0.75129  dEint /kcal :-2373.9629
+ 10  Gnorm:   0.02575  alpha:   0.23797  dEint /kcal :-2375.0232
+ 11  Gnorm:   0.02176  alpha:   0.89940  dEint /kcal :-2379.5134
+ 12  Gnorm:   0.01374  alpha:  -0.07790  dEint /kcal :-2380.1525
+ 13  Gnorm:   0.01547  alpha:   9.88501  dEint /kcal :-2382.5616
+ 14  Gnorm:   0.01499  alpha:  -0.98850  dEint /kcal :-2390.7115
+ 15  Gnorm:   0.01416  alpha:   1.21874  dEint /kcal :-2397.2853
+ 16  Gnorm:   0.00956  alpha:   1.07935  dEint /kcal :-2400.2983
+ 17  Gnorm:   0.00565  alpha:  -0.49727  dEint /kcal :-2400.7944
+ 18  Gnorm:   0.00928  alpha:  -0.55793  dEint /kcal :-2401.2087
+ 19  Gnorm:   0.01142  alpha:   0.93572  dEint /kcal :-2402.8843
+ 20  Gnorm:   0.00932  alpha:   0.51828  dEint /kcal :-2404.3748
+ 21  Gnorm:   0.00746  alpha:   0.48252  dEint /kcal :-2405.0521
+ 22  Gnorm:   0.00513  alpha:   0.50897  dEint /kcal :-2406.2763
+ 23  Gnorm:   0.00564  alpha:  -0.65226  dEint /kcal :-2408.0526
+ 24  Gnorm:   0.00497  alpha:   1.63113  dEint /kcal :-2410.8114
+last gradient: 0.004973  energy gain:-2410.811  in cycles: 24
+ optimization            8
+  1  Gnorm:  14.35692  alpha:   3.53477  dEint /kcal :-3291.9259
+  2  Gnorm:   0.65815  alpha:   7.27788  dEint /kcal :-3822.5603
+  3  Gnorm:   0.07854  alpha:   0.22501  dEint /kcal :-3889.5020
+  4  Gnorm:   0.02933  alpha:  -0.30544  dEint /kcal :-3893.9847
+  5  Gnorm:   0.03617  alpha:   0.02439  dEint /kcal :-3893.9963
+  6  Gnorm:   0.03617  alpha:   0.50000  dEint /kcal :-3893.9963
+  7  Gnorm:   0.04525  alpha:   0.48491  dEint /kcal :-3901.1451
+  8  Gnorm:   0.01965  alpha:  -0.40695  dEint /kcal :-3912.3865
+  9  Gnorm:   0.01923  alpha:   0.24311  dEint /kcal :-3925.6492
+ 10  Gnorm:   0.02026  alpha:   0.05987  dEint /kcal :-3926.8411
+ 11  Gnorm:   0.01978  alpha:   1.01406  dEint /kcal :-3926.8447
+ 12  Gnorm:  79.81433  alpha:   0.50000  dEint /kcal :-3926.8447
+ 13  Gnorm:   0.12067  alpha:   0.82212  dEint /kcal :-3921.5976
+ 14  Gnorm:   0.04001  alpha:  -0.00406  dEint /kcal :-3921.6452
+ 15  Gnorm:   0.04008  alpha:   0.00214  dEint /kcal :-3921.6453
+ no optimization progress
+ optimization            9
+  1  Gnorm:  18.22764  alpha:   4.95373  dEint /kcal :-4175.8750
+  2  Gnorm:   0.34831  alpha:   4.63249  dEint /kcal :-4627.0944
+  3  Gnorm:   0.08275  alpha:   0.75376  dEint /kcal :-4667.1991
+  4  Gnorm:   0.03207  alpha:   0.53724  dEint /kcal :-4674.9633
+  5  Gnorm:   0.01977  alpha:   1.18778  dEint /kcal :-4681.1806
+  6  Gnorm:   0.00761  alpha:   0.22875  dEint /kcal :-4682.0805
+  7  Gnorm:   0.00673  alpha:   0.49715  dEint /kcal :-4682.2067
+  8  Gnorm:   0.00605  alpha:   0.12979  dEint /kcal :-4682.2073
+  9  Gnorm:   0.00618  alpha:  -0.07408  dEint /kcal :-4682.2134
+ 10  Gnorm:  49.71826  alpha:   0.50000  dEint /kcal :-4682.2134
+ 11  Gnorm:   0.11746  alpha:   0.93422  dEint /kcal :-4636.8945
+ 12  Gnorm:   0.05833  alpha:   0.41603  dEint /kcal :-4667.1216
+ 13  Gnorm:   0.01932  alpha:  -0.69632  dEint /kcal :-4667.9420
+ 14  Gnorm:   0.02275  alpha:   0.46085  dEint /kcal :-4682.0084
+ 15  Gnorm:   0.01457  alpha:   0.00280  dEint /kcal :-4682.0426
+ 16  Gnorm:  19.30826  alpha:   0.00177  dEint /kcal :-4682.1088
+ 17  Gnorm:  76.63960  alpha:  -0.00019  dEint /kcal :-4682.1091
+ 18  Gnorm:   0.01384  alpha:   0.20545  dEint /kcal :-4682.1306
+ 19  Gnorm:   0.01198  alpha:  -0.01671  dEint /kcal :-4682.2161
+ 20  Gnorm:   0.01214  alpha:  -0.60488  dEint /kcal :-4682.2166
+ 21  Gnorm:  93.99205  alpha:   0.50000  dEint /kcal :-4682.2166
+ 22  Gnorm:   0.01046  alpha:  -0.10148  dEint /kcal :-4682.2587
+ 23  Gnorm:   0.01270  alpha:   0.01831  dEint /kcal :-4682.2622
+ 24  Gnorm:  92.22411  alpha:   0.50000  dEint /kcal :-4682.2622
+ 25  Gnorm:   0.03395  alpha:   0.47531  dEint /kcal :-4673.9945
+last gradient: 0.033946  energy gain:-4682.262  in cycles: 26
+ optimization           10
+  1  Gnorm:  24.16665  alpha:   4.04233  dEint /kcal :-5229.5441
+  2  Gnorm:   0.69143  alpha:   3.93645  dEint /kcal :-5797.5857
+  3  Gnorm:   0.11776  alpha:   2.31047  dEint /kcal :-5834.1082
+  4  Gnorm:   0.02479  alpha:  -0.35648  dEint /kcal :-5837.3740
+  5  Gnorm:   0.03213  alpha:   1.14953  dEint /kcal :-5843.0499
+  6  Gnorm:   0.01532  alpha:  -0.01268  dEint /kcal :-5843.1378
+  7  Gnorm:  40.20003  alpha:  -0.00080  dEint /kcal :-5843.1625
+  8  Gnorm:  40.20711  alpha:   0.09385  dEint /kcal :-5844.9709
+  9  Gnorm:   0.01950  alpha:  -0.98870  dEint /kcal :-5846.0522
+ 10  Gnorm:   0.02617  alpha:   0.89643  dEint /kcal :-5870.2247
+ 11  Gnorm:   0.03466  alpha:   2.87820  dEint /kcal :-5899.8352
+ 12  Gnorm:   0.01462  alpha:   0.55108  dEint /kcal :-5901.0563
+ 13  Gnorm:   0.00716  alpha:   0.28407  dEint /kcal :-5901.5259
+ 14  Gnorm:   0.00629  alpha:  -0.16503  dEint /kcal :-5901.5986
+ 15  Gnorm:   0.00669  alpha:  -0.20930  dEint /kcal :-5901.6692
+ 16  Gnorm:  31.18976  alpha:   0.00219  dEint /kcal :-5901.7026
+ 17  Gnorm:  33.77667  alpha:  -0.00020  dEint /kcal :-5901.7032
+ 18  Gnorm:  33.43002  alpha:   0.50000  dEint /kcal :-5901.7038
+ 19  Gnorm:   0.07061  alpha:   2.83108  dEint /kcal :-5800.2279
+ 20  Gnorm:   0.09020  alpha:  -0.01917  dEint /kcal :-5801.6671
+ 21  Gnorm:  35.55774  alpha:   0.00900  dEint /kcal :-5815.2218
+ 22  Gnorm:  93.62671  alpha:   0.50000  dEint /kcal :-5815.2219
+ 23  Gnorm:   0.18860  alpha:   0.89854  dEint /kcal :-5738.1895
+ 24  Gnorm:   0.05057  alpha:  -0.98346  dEint /kcal :-5820.5524
+ 25  Gnorm:   0.01696  alpha:  -0.98850  dEint /kcal :-5826.3039
+last gradient: 0.016958  energy gain:-5901.704  in cycles: 26
+ optimization           11
+  1  Gnorm:  38.04520  alpha:   5.84310  dEint /kcal :-8360.7570
+  2  Gnorm:   0.40863  alpha:   3.23470  dEint /kcal :-8818.1464
+  3  Gnorm:   0.05873  alpha:  -0.88300  dEint /kcal :-8892.9412
+  4  Gnorm:   0.05829  alpha:   0.75384  dEint /kcal :-8902.9571
+  5  Gnorm:   0.03986  alpha:   6.71460  dEint /kcal :-8933.9265
+  6  Gnorm:   0.02014  alpha:   0.54000  dEint /kcal :-8937.2018
+  7  Gnorm:   0.00591  alpha:  -0.27659  dEint /kcal :-8937.5574
+  8  Gnorm:   0.00395  alpha:   0.29624  dEint /kcal :-8937.8185
+last gradient: 0.003946  energy gain:-8937.818  in cycles:  8
+ optimization           12
+  1  Gnorm:  48.77992  alpha:   7.30615  dEint /kcal :**********
+  2  Gnorm:   0.53267  alpha:   5.72293  dEint /kcal :**********
+  3  Gnorm:   0.01963  alpha:   0.90956  dEint /kcal :**********
+  4  Gnorm:   0.00735  alpha:   4.80421  dEint /kcal :**********
+  5  Gnorm:   0.02596  alpha:   1.38001  dEint /kcal :**********
+  6  Gnorm:   0.00473  alpha:   0.21196  dEint /kcal :**********
+last gradient: 0.004730  energy gain:*********  in cycles:  6
+ optimization           13
+  1  Gnorm:  66.63121  alpha:   9.82265  dEint /kcal :**********
+  2  Gnorm:   1.02779  alpha:   3.81966  dEint /kcal :**********
+  3  Gnorm:   0.09015  alpha:   6.44642  dEint /kcal :**********
+  4  Gnorm:   0.05494  alpha:   0.86948  dEint /kcal :**********
+  5  Gnorm:   0.02640  alpha:   0.15302  dEint /kcal :**********
+  6  Gnorm:   0.02513  alpha:  -0.98119  dEint /kcal :**********
+  7  Gnorm:   0.02707  alpha:   1.29195  dEint /kcal :**********
+  8  Gnorm:   0.00356  alpha:   0.80864  dEint /kcal :**********
+last gradient: 0.003557  energy gain:*********  in cycles:  8
+ optimization           14
+  1  Gnorm:  75.72450  alpha:   9.86959  dEint /kcal :**********
+  2  Gnorm:   0.39180  alpha:   2.85572  dEint /kcal :**********
+  3  Gnorm:   0.05608  alpha:   4.20221  dEint /kcal :**********
+  4  Gnorm:   0.01627  alpha:  -0.44463  dEint /kcal :**********
+  5  Gnorm:   0.01511  alpha:   1.12782  dEint /kcal :**********
+  6  Gnorm:   0.03002  alpha:   0.24337  dEint /kcal :**********
+  7  Gnorm:   0.01598  alpha:   0.47386  dEint /kcal :**********
+  8  Gnorm:   7.51324  alpha:   0.00021  dEint /kcal :**********
+  9  Gnorm:  13.02760  alpha:  -0.22279  dEint /kcal :**********
+ 10  Gnorm:   0.00736  alpha:  -0.76393  dEint /kcal :**********
+ 11  Gnorm:   0.01252  alpha:  -0.05793  dEint /kcal :**********
+ 12  Gnorm:   0.01297  alpha:   0.00162  dEint /kcal :**********
+ 13  Gnorm:   0.01297  alpha:   0.50000  dEint /kcal :**********
+ 14  Gnorm:   0.03126  alpha:  -0.51600  dEint /kcal :**********
+ 15  Gnorm:   0.01481  alpha:   1.64513  dEint /kcal :**********
+ 16  Gnorm:   0.02524  alpha:   1.10084  dEint /kcal :**********
+ 17  Gnorm:   0.00832  alpha:  -0.12097  dEint /kcal :**********
+ 18  Gnorm:   0.00932  alpha:   0.41907  dEint /kcal :**********
+ 19  Gnorm:   0.00258  alpha:   2.88477  dEint /kcal :**********
+last gradient: 0.002581  energy gain:*********  in cycles: 19
+ optimization           15
+  1  Gnorm:  96.48816  alpha:   9.82593  dEint /kcal :**********
+  2  Gnorm:   0.29808  alpha:   4.29119  dEint /kcal :**********
+  3  Gnorm:   0.04111  alpha:   0.66583  dEint /kcal :**********
+  4  Gnorm:   0.03239  alpha:   4.25748  dEint /kcal :**********
+  5  Gnorm:   0.02229  alpha:   0.79022  dEint /kcal :**********
+  6  Gnorm:   0.01149  alpha:   0.84424  dEint /kcal :**********
+  7  Gnorm:   0.00598  alpha:  -0.42984  dEint /kcal :**********
+  8  Gnorm:   0.00966  alpha:  -0.27977  dEint /kcal :**********
+  9  Gnorm:   0.01311  alpha:  -0.98414  dEint /kcal :**********
+ 10  Gnorm:   0.01501  alpha:   0.57001  dEint /kcal :**********
+ 11  Gnorm:   0.00599  alpha:   0.17747  dEint /kcal :**********
+ 12  Gnorm:   0.00564  alpha:   2.02143  dEint /kcal :**********
+ 13  Gnorm:   0.01830  alpha:  -0.55467  dEint /kcal :**********
+ 14  Gnorm:   0.02676  alpha:   0.13237  dEint /kcal :**********
+ 15  Gnorm:   0.02289  alpha:   0.40873  dEint /kcal :**********
+ 16  Gnorm:   0.02170  alpha:   0.50012  dEint /kcal :**********
+ 17  Gnorm:   0.01603  alpha:  -0.52584  dEint /kcal :**********
+ 18  Gnorm:   0.01981  alpha:   0.47873  dEint /kcal :**********
+ 19  Gnorm:   0.00726  alpha:   0.08611  dEint /kcal :**********
+ 20  Gnorm:   0.00533  alpha:  -0.50060  dEint /kcal :**********
+ 21  Gnorm:   0.00801  alpha:  -0.47214  dEint /kcal :**********
+ 22  Gnorm:   0.01141  alpha:   0.02199  dEint /kcal :**********
+ 23  Gnorm:  95.05567  alpha:   0.01227  dEint /kcal :**********
+ 24  Gnorm:   0.01074  alpha:   0.24457  dEint /kcal :**********
+ 25  Gnorm:   0.00831  alpha:   0.11203  dEint /kcal :**********
+last gradient: 0.008310  energy gain:*********  in cycles: 26
+ 
+ final structures (Rx,Ry,Rz,alp,bet,gam,E in kcal/mol):
+R CMA (Angst) :     2.065
+R min (Angst) :     1.535
+dipole moment :     2.559
+intermolecular energies in kcal/mol
+E Pauli       :    70.236
+E disp ATM    :     1.005
+E disp 2B     :    -9.168
+E disp total  :    -8.163
+E ES atom     :    -6.059
+E ES LMO      :    -5.446
+E ES total    :   -11.505
+E induction   :    -5.095
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1349.937
+               1349.93745238  <== Gint total
+   1.685   0.271   3.510  -1.768  -0.157  -1.646        1349.94
+R CMA (Angst) :     8.172
+R min (Angst) :     1.494
+dipole moment :     1.283
+intermolecular energies in kcal/mol
+E Pauli       :    34.253
+E disp ATM    :     0.304
+E disp 2B     :    -4.058
+E disp total  :    -3.754
+E ES atom     :    -3.177
+E ES LMO      :     2.787
+E ES total    :    -0.390
+E induction   :    -1.987
+E CT          :    -0.000
+E cavity      :  1322.398
+Eint total,gas:  1350.519
+               1350.51896975  <== Gint total
+  -2.873  12.442  -8.683  -1.541  -2.164   5.278        1350.52
+R CMA (Angst) :     3.046
+R min (Angst) :     1.332
+dipole moment :     2.499
+intermolecular energies in kcal/mol
+E Pauli       :   197.396
+E disp ATM    :     0.988
+E disp 2B     :    -9.158
+E disp total  :    -8.171
+E ES atom     :   -11.582
+E ES LMO      :     1.274
+E ES total    :   -10.308
+E induction   :    -1.714
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1481.668
+               1481.66773489  <== Gint total
+   0.398   0.127  -5.742   7.493   8.526   1.246        1481.67
+R CMA (Angst) :     2.601
+R min (Angst) :     1.510
+dipole moment :     1.466
+intermolecular energies in kcal/mol
+E Pauli       :    78.051
+E disp ATM    :     0.957
+E disp 2B     :    -9.266
+E disp total  :    -8.309
+E ES atom     :    -7.580
+E ES LMO      :    -2.590
+E ES total    :   -10.170
+E induction   :    -4.789
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1359.247
+               1359.24726465  <== Gint total
+   3.447  -1.835  -2.986   0.576   0.676   5.947        1359.25
+R CMA (Angst) :     4.875
+R min (Angst) :     1.256
+dipole moment :     1.832
+intermolecular energies in kcal/mol
+E Pauli       :    94.304
+E disp ATM    :     0.842
+E disp 2B     :    -8.854
+E disp total  :    -8.012
+E ES atom     :    -6.747
+E ES LMO      :    -3.377
+E ES total    :   -10.123
+E induction   :   -18.049
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1362.584
+               1362.58383332  <== Gint total
+   5.871   7.077  -0.571   3.642   4.243   2.927        1362.58
+R CMA (Angst) :     1.056
+R min (Angst) :     1.183
+dipole moment :     1.818
+intermolecular energies in kcal/mol
+E Pauli       :   124.907
+E disp ATM    :     1.040
+E disp 2B     :    -9.139
+E disp total  :    -8.099
+E ES atom     :   -12.915
+E ES LMO      :    -3.478
+E ES total    :   -16.393
+E induction   :   -27.141
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1377.739
+               1377.73862226  <== Gint total
+  -1.916   0.559  -0.018  -0.720   1.046   0.987        1377.74
+R CMA (Angst) :     1.800
+R min (Angst) :     1.183
+dipole moment :     1.847
+intermolecular energies in kcal/mol
+E Pauli       :   114.111
+E disp ATM    :     1.020
+E disp 2B     :    -9.373
+E disp total  :    -8.353
+E ES atom     :   -10.901
+E ES LMO      :    -0.091
+E ES total    :   -10.992
+E induction   :   -21.308
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1377.921
+               1377.92094314  <== Gint total
+  -2.395   2.218  -0.953   0.188   7.930   1.585        1377.92
+R CMA (Angst) :     2.965
+R min (Angst) :     1.231
+dipole moment :     1.159
+intermolecular energies in kcal/mol
+E Pauli       :   145.808
+E disp ATM    :     0.993
+E disp 2B     :    -8.896
+E disp total  :    -7.902
+E ES atom     :   -17.369
+E ES LMO      :    -5.217
+E ES total    :   -22.586
+E induction   :   -23.535
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1396.249
+               1396.24894709  <== Gint total
+   1.186   4.991  -2.255   2.675   0.078   3.597        1396.25
+
+ MATRIX PRINTED:  RMSD
+
+           1         2         3         4         5         6
+
+    1   0.00000
+    2  17.84455   0.00000
+    3   7.15005  16.67624   0.00000
+    4   9.05004  13.12119   9.69942   0.00000
+    5   5.19650  14.80149   6.63936  10.28438   0.00000
+    6   6.53148  12.91949   7.45816   9.71377   2.05534   0.00000
+    7   7.52730  10.74351   7.34424   5.49682   6.03325   4.93092
+    8   9.49353  13.16999   4.67409  10.35081   6.27003   5.95498
+
+           7         8
+ 
+    7   0.00000
+    8   6.20680   0.00000
+ 
+ best (resorted to full energy) structures on file xtbscreen.xyz
+ best structure (Rx,Ry,Rz,alp,bet,gam,E in kcal/mol):
+R CMA (Angst) :     2.065
+R min (Angst) :     1.535
+dipole moment :     2.559
+intermolecular energies in kcal/mol
+E Pauli       :    70.236
+E disp ATM    :     1.005
+E disp 2B     :    -9.168
+E disp total  :    -8.163
+E ES atom     :    -6.059
+E ES LMO      :    -5.446
+E ES total    :   -11.505
+E induction   :    -5.095
+E CT          :    -0.000
+E cavity      :  1304.464
+Eint total,gas:  1349.937
+               1349.93745238  <== Gint total

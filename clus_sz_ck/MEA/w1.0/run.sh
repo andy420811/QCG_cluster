@@ -19,7 +19,7 @@ else
 	ipre=0
 	jpre=0
 fi
-for i in 1 2 3 4 5
+for i in 1 2 3 4 5 6 7 8 9 10
 do
 	if [ $i -lt $ipre ]; then
 		continue
@@ -27,7 +27,7 @@ do
 
 	mkdir -p run"$i"
 	cd run"$i"
-	for j in 25 30 35 40 45 60 70 80 90 100 200
+	for j in 25 30 35 40 45 60
 	do	
 		if 	[[ $j -lt $jpre || $j -eq $jpre ]]; then		
 			if [ $i -eq $ipre ]; then
