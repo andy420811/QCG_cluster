@@ -1,0 +1,390 @@
+ 
+       ==============================================
+       |                                            |
+       |                 C R E S T                  |
+       |                                            |
+       |  Conformer-Rotamer Ensemble Sampling Tool  |
+       |          based on the GFN methods          |
+       |             P.Pracht, S.Grimme             |
+       |          Universitaet Bonn, MCTC           |
+       ==============================================
+       Version 2.12,   Thu 19. Mai 16:32:32 CEST 2022
+  Using the xTB program. Compatible with xTB version 6.4.0
+ 
+   Cite work conducted with this code as
+
+   • P.Pracht, F.Bohle, S.Grimme, PCCP, 2020, 22, 7169-7192.
+   • S.Grimme, JCTC, 2019, 15, 2847-2862.
+
+   and for works involving QCG as
+
+   • S.Spicher, C.Plett, P.Pracht, A.Hansen, S.Grimme,
+     JCTC, 2022, 18 (5), 3174-3189.
+ 
+   with help from:
+   C.Bannwarth, F.Bohle, S.Ehlert, S.Grimme,
+   C.Plett, P.Pracht, S.Spicher
+ 
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+ Command line input:
+ > crest input.xyz --qcg water.xyz --chrg 1 --uhf 0 --nsolv 250 --T 40 --gsolv --nclus 20 --gbsa water --wscal 1.0
+
+ Solute-file: input.xyz
+ Solvent-file: water.xyz
+  --chrg 1
+  --uhf 0
+  --T 40 (CPUs/Threads selected)
+  --gbsa water : implicit solvation
+ 
+  ========================================
+  |           ----------------           |
+  |                 Q C G                |
+  |           ----------------           |
+  |        Quantum Cluster Growth        |
+  |       University of Bonn, MCTC       |
+  ========================================
+   S. Grimme, S. Spicher, C. Plett.
+ 
+   Cite work conducted with this code as
+
+   S. Spicher, C. Plett, P. Pracht, A. Hansen, S. Grimme, JCTC, 2022, 18, 3174-3189.
+ 
+ 
+  =========================================
+  |   quantum cluster growth: INPUT       |
+  =========================================
+ 
+  QCG: Calculation of delta G_solv
+  Ensemble generated via CREST
+ 
+  input parameters     
+  solute                 : input.xyz
+  charge                 : 1
+  uhf                    : 0
+  solvent                : water.xyz
+  # of solvents to add   : 250
+  # of cluster generated : 20
+  # of CPUs used         : 40
+  Solvation model        : water               
+  xtb opt level          : normal
+  System temperature [K] : 298.1
+  RRHO scaling factor    : 0.75
+ 
+ Solute geometry
+  molecular radius (Bohr**1):    5.72
+  molecular area   (Bohr**2):  476.48
+  molecular volume (Bohr**3):  783.39
+ Solvent geometry
+  molecular radius (Bohr**1):    3.88
+  molecular area   (Bohr**2):  194.99
+  molecular volume (Bohr**3):  244.40
+ 
+  radius of solute    :     9.22
+  radius of solvent   :     6.25
+ 
+  =========================================
+  |            Preoptimization            |
+  =========================================
+ 
+ -------------------------
+ xTB Geometry Optimization
+ -------------------------
+ Geometry successfully optimized.
+ Generating LMOs for solute
+  Total Energy of solute:     -14.8868705 Eh
+ 
+ -------------------------
+ xTB Geometry Optimization
+ -------------------------
+ Geometry successfully optimized.
+ Generating LMOs for solvent
+  Total energy of solvent:     -5.0705444 Eh
+ Solute:
+       unit ellipsoid axis a,b,c     :   0.451   0.277   0.272
+ Solvent:
+       unit ellipsoid axis a,b,c     :   0.386   0.322   0.292
+ 
+  solvent anisotropy            :     1.133
+  solute anisotropy             :     1.240
+  roff inner wall               :     0.970
+  solute max dist               :    14.282
+  solvent max dist              :     7.283
+  inner unit axis               :     0.575     0.216     0.209
+  inner ellipsoid/Bohr          :    15.166     5.698     5.501
+  scaling factor outer ellipsoid:     1.000
+  outer ellipsoid/Bohr          :    34.857    21.366    20.994
+ 
+ 
+ 
+Found cluster with 250 solvents
+  Ensemble of solute-cluster found.
+  Taking all 20 structures
+ Solute Ensmeble Free E [kcal/mol]  -808575.415954734     
+ 
+ 
+  ________________________________________________________________________
+ 
+  _________________     Solvent Cluster Generation   _____________________
+ 
+  ________________________________________________________________________
+ 
+ Method for CFF: GFN2-xTB
+ 
+  =========================================
+  |   quantum cluster growth: CFF         |
+  =========================================
+ 
+  CUT-FREEZE-FILL Algorithm to generate reference solvent cluster
+  now adding solvents to fill cluster...
+  Size  Cluster   E /Eh        De/kcal   Detot/kcal  Opt
+  ------------------------------------------------------------------------
+ 251       1  -1278.464981    -19.33      -19.33    tight
+ 251       2  -1278.447170    -17.49      -17.49    tight
+ 251       3  -1278.452203    -22.57      -22.57    tight
+ 251       4  -1278.459023    -22.16      -22.16    tight
+ 251       5  -1278.456160    -30.05      -30.05    tight
+ 251       6  -1278.449118    -21.56      -21.56    tight
+ 251       7  -1278.457444    -27.92      -27.92    tight
+ 251       8  -1278.440113    -15.85      -15.85    tight
+ 251       9  -1278.450664    -25.15      -25.15    tight
+ 251      10  -1278.451091    -28.94      -28.94    tight
+ 251      11  -1278.434542    -17.47      -17.47    tight
+ 251      12  -1278.444600    -22.91      -22.91    tight
+ 251      13  -1278.430723    -25.19      -25.19    tight
+ 251      14  -1278.435829    -27.17      -27.17    tight
+ 251      15  -1278.444806    -22.04      -22.04    tight
+ 251      16  -1278.432409    -19.63      -19.63    tight
+ 251      17  -1278.428382    -23.66      -23.66    tight
+ 251      18  -1278.424082    -21.57      -21.57    tight
+ 251      19  -1278.424196    -19.40      -19.40    tight
+ 251      20  -1278.435159    -21.10      -21.10    tight
+  ------------------------------------------------------------------------
+ 252       1  -1283.570993    -22.26      -41.59    tight
+ 252       2  -1283.565675    -30.10      -47.58    tight
+ 252       3  -1283.552295    -18.54      -41.12    tight
+ 252       4  -1283.566571    -23.22      -45.38    tight
+ 252       5  -1283.565773    -24.52      -54.56    tight
+ 252       6  -1283.550210    -19.17      -40.73    tight
+ 252       7  -1283.559955    -20.06      -47.98    tight
+ 252       8  -1283.555161    -27.93      -43.77    tight
+ 252       9  -1283.553081    -20.00      -45.15    tight
+ 252      10  -1283.556567    -21.92      -50.86    tight
+ 252      11  -1283.543807    -24.30      -41.77    tight
+ 252      12  -1283.542343    -17.07      -39.98    tight
+ 252      13  -1283.540069    -24.35      -49.54    tight
+ 252      14  -1283.540460    -21.39      -48.56    tight
+ 252      15  -1283.546181    -19.35      -41.39    tight
+ 252      16  -1283.536532    -21.07      -40.70    tight
+ 252      17  -1283.534052    -22.04      -45.70    tight
+ 252      18  -1283.533025    -24.09      -45.66    tight
+ 252      19  -1283.544771    -31.39      -50.79    tight
+ 252      20  -1283.538234    -20.41      -41.51    tight
+  ------------------------------------------------------------------------
+ 253       1  -1288.672838    -19.64      -61.23    tight
+ 253       2  -1288.658627    -14.06      -61.64    tight
+ 253       3  -1288.656306    -21.00      -62.12    tight
+ 253       4  -1288.653891    -10.53      -55.91    tight
+ 253       5  -1288.656913    -12.92      -67.49    tight
+ 253       6  -1288.655249    -21.65      -62.37    tight
+ 253       7  -1288.653446    -14.40      -62.38    tight
+ 253       8  -1288.644811    -11.99      -55.76    tight
+ 253       9  -1288.649178    -16.03      -61.19    tight
+ 253      10  -1288.651169    -15.10      -65.95    tight
+ 253      11  -1288.648342    -21.33      -63.09    tight
+ 253      12  -1288.635365    -14.10      -54.08    tight
+ 253      13  -1288.639544    -18.15      -67.69    tight
+ 253      14  -1288.629255    -11.45      -60.01    tight
+ 253      15  -1288.633457    -10.50      -51.89    tight
+ 253      16  -1288.627295    -12.69      -53.39    tight
+ 253      17  -1288.632470    -17.49      -63.19    tight
+ 253      18  -1288.630018    -16.60      -62.26    tight
+ 253      19  -1288.635536    -12.69      -63.48    tight
+ 253      20  -1288.629711    -13.14      -54.65    tight
+  ------------------------------------------------------------------------
+  volume filled
+  Starting optimizations + SP  of structures
+  20 jobs to do.
+ 
+  done.
+ 
+  Cluster   E /Eh        Density  Efix       R   av/act. Surface   Opt
+    1     -1273.392125   1.401    0.000     3.0   3.4     8600.2   tight
+    2     -1273.378082   1.399    0.000     3.7   5.4     8766.4   tight
+    3     -1273.375793   1.387    0.000    11.0   1.8     9142.1   tight
+    4     -1273.373411   1.394    0.000     4.3  17.7     8955.7   tight
+    5     -1273.376415   1.393    0.000     6.2  20.1     8971.3   tight
+    6     -1273.374755   1.396    0.000     4.5  17.9     8851.1   tight
+    7     -1273.373369   1.391    0.000     4.0  21.7     9164.1   tight
+    8     -1273.364438   1.387    0.000     4.2  20.2     9290.0   tight
+    9     -1273.368737   1.392    0.000     4.5  24.4     8828.1   tight
+   10     -1273.370752   1.388    0.000     4.9  26.9     9199.8   tight
+   11     -1273.367926   1.390    0.000     5.5   3.9     9198.8   tight
+   12     -1273.355816   1.387    0.000     4.3  18.4     9113.7   tight
+   13     -1273.359237   1.383    0.000     3.9   4.5     9382.1   tight
+   14     -1273.348812   1.398    0.000     4.8   5.0     8738.0   tight
+   15     -1273.353229   1.388    0.000     4.8  25.4     8999.6   tight
+   16     -1273.347131   1.383    0.000     3.4  19.9     9302.2   tight
+   17     -1273.352189   1.398    0.000     6.0  24.6     8748.3   tight
+   18     -1273.349990   1.391    0.000     6.4  27.9     8938.2   tight
+   19     -1273.355267   1.392    0.000     5.2  22.6     8809.4   tight
+   20     -1273.349515   1.393    0.000     5.3   3.9     8875.1   tight
+ 
+  ------------------------------------------------------------------------
+  ------------------------------------------------------------------------
+  Boltz. averaged energy of final cluster:
+       G /Eh     :-1273.39212515
+       T*S /kcal :  -0.000
+ 
+  Solvent cluster generation finished.
+  Results can be found in solvent_cluster directory
+  Structures in file <crest_ensemble.xyz>
+  Energies in file <cluster_energy.dat>
+  Population in file <population.dat>
+ 
+  =========================================
+  |   quantum cluster growth: ESOLV       |
+  |                                       |
+  |          -168.05 kcal/mol             |
+  =========================================
+ 
+  =========================================
+  |          Frequency evaluation         |
+  =========================================
+ 
+   SOLUTE MOLECULE
+  Starting reoptimizations + Frequency computation of ensemble
+  1 jobs to do.
+ 
+  done.
+   SOLUTE CLUSTER
+  Starting reoptimizations + Frequency computation of ensemble
+  20 jobs to do.
+ 
+  done.
+   SOLVENT CLUSTER
+  Starting reoptimizations + Frequency computation of ensemble
+  20 jobs to do.
+ 
+  done.
+ 
+   Solute Gas properties
+  #       H(T)       SVIB      SROT       STRA      G(T)
+       [kcal/mol]    [      cal/mol/K        ]    [kcal/mol]
+  --------------------------------------------------------
+       71.00     11.05     24.33     38.28     49.04
+ 
+   Solute cluster properties
+  #       H(T)       SVIB      SROT       STRA      G(T)
+       [kcal/mol]    [      cal/mol/K        ]    [kcal/mol]
+  --------------------------------------------------------
+  1     4251.87   2284.58     48.08     51.09   3541.16
+  2     4252.00   2299.95     48.10     51.09   3536.70
+  3     4251.39   2296.41     48.16     51.09   3537.13
+  4     4251.42   2293.84     48.11     51.09   3537.94
+  5     4252.32   2306.19     48.10     51.09   3535.16
+  6     4252.02   2307.03     48.11     51.09   3534.60
+  7     4252.06   2291.48     48.12     51.09   3539.28
+  8     4251.62   2291.68     48.11     51.09   3538.78
+  9     4252.63   2295.78     48.10     51.09   3538.57
+  10     4252.27   2297.21     48.13     51.09   3537.78
+  11     4250.22   2303.09     48.16     51.09   3533.96
+  12     4250.34   2313.17     48.10     51.09   3531.09
+  13     4249.38   2300.69     48.20     51.09   3533.83
+  14     4251.02   2309.41     48.11     51.09   3532.90
+  15     4249.80   2310.22     48.13     51.09   3531.43
+  16     4249.49   2302.54     48.13     51.09   3533.41
+  17     4252.49   2312.84     48.14     51.09   3533.33
+  18     4250.91   2316.69     48.14     51.09   3530.60
+  19     4252.26   2320.13     48.17     51.09   3530.92
+  20     4250.09   2313.31     48.15     51.09   3530.80
+ 
+   Solvent cluster properties
+  #       H(T)       SVIB      SROT       STRA      G(T)
+       [kcal/mol]    [      cal/mol/K        ]    [kcal/mol]
+  --------------------------------------------------------
+  1     4178.15   2253.93     48.03     51.04   3476.60
+  2     4178.64   2278.63     48.06     51.04   3469.72
+  3     4178.61   2270.45     48.13     51.04   3472.10
+  4     4177.56   2232.17     48.09     51.04   3482.48
+  5     4178.53   2274.52     48.03     51.04   3470.84
+  6     4179.97   2276.62     48.07     51.04   3471.65
+  7     4178.61   2248.79     48.07     51.04   3478.59
+  8     4179.24   2264.95     48.05     51.04   3474.40
+  9     4179.03   2269.53     48.03     51.04   3472.83
+  10     4178.09   2263.66     48.08     51.04   3473.63
+  11     4176.22   2283.31     48.14     51.04   3465.88
+  12     4177.83   2254.12     48.07     51.04   3476.22
+  13     4176.35   2274.86     48.17     51.04   3468.52
+  14     4178.18   2275.59     48.05     51.04   3470.17
+  15     4176.60   2267.90     48.06     51.04   3470.87
+  16     4176.23   2274.00     48.10     51.04   3468.68
+  17     4178.47   2284.14     48.12     51.04   3467.89
+  18     4178.04   2285.03     48.11     51.04   3467.19
+  19     4178.11   2290.10     48.13     51.04   3465.74
+  20     4176.97   2268.29     48.10     51.04   3471.12
+ 
+ 
+  ________________________________________________________________________
+ 
+  _________________________     Evaluation    ____________________________
+ 
+  ________________________________________________________________________
+ 
+ 
+  -----------------------------------------------------
+  Gsolv and Hsolv ref. state: [1 M gas/solution] 
+  G_solv (incl.RRHO)      = -153.27 kcal/mol
+  H_solv (incl.RRHO)      = -165.32 kcal/mol
+  -----------------------------------------------------
+ 
+  -----------------------------------------------------
+  Gsolv and Hsolv ref. state: [1 M gas/solution] 
+  G_solv (incl.RRHO)      = -155.17 kcal/mol
+  H_solv (incl.RRHO)      = -167.21 kcal/mol
+  -----------------------------------------------------
+ 
+  -----------------------------------------------------
+  Solvation free energies with scaled translational
+  and rotational degrees of freedom: Gsolv (scaling)
+          >>   -172.87 (0.05)    <<
+          >>   -171.94 (0.10)    <<
+          >>   -171.01 (0.15)    <<
+          >>   -170.08 (0.20)    <<
+          >>   -169.14 (0.25)    <<
+          >>   -168.21 (0.30)    <<
+          >>   -167.28 (0.35)    <<
+          >>   -166.35 (0.40)    <<
+          >>   -165.42 (0.45)    <<
+          >>   -164.49 (0.50)    <<
+          >>   -163.55 (0.55)    <<
+          >>   -162.62 (0.60)    <<
+          >>   -161.69 (0.65)    <<
+          >>   -160.76 (0.70)    <<
+          >>   -159.83 (0.75)    <<
+          >>   -158.89 (0.80)    <<
+          >>   -157.96 (0.85)    <<
+          >>   -157.03 (0.90)    <<
+          >>   -156.10 (0.95)    <<
+          >>   -155.17 (1.00)    <<
+  -----------------------------------------------------
+ 
+  ==================================================
+  |  Gsolv with SCALED RRHO contributions: 0.75    |
+  |  [1 bar gas/ 1 M solution]                     |
+  |                                                |
+  |  G_solv (incl.RRHO)+dV(T)= -159.83 kcal/mol    |
+  ==================================================
+ 
+ 
+ -----------------
+ Wall Time Summary
+ -----------------
+                 CFF wall time :         1h :27m :39s
+         Frequencies wall time :        28h :48m :11s
+--------------------
+Overall wall time  : 30h :15m :50s
+ 
+ CREST terminated normally.
